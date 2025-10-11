@@ -124,7 +124,7 @@ function SolutionSection({ index, logo, logoAlt, title, description, image, imag
                     transition={{ duration: 0.8 }}
                     style={{ filter: grayscale }}
                     viewport={{ once: true }}
-                    className="relative w-full md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
+                    className="relative w-full md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden h-[400px] md:h-[500px]"
                 >
                     <Image
                         src={image}

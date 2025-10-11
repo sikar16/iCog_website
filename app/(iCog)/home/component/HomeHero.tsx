@@ -12,7 +12,7 @@ export default function HomeHero() {
 
     return (
         <div
-            className="w-full h-[750px] flex items-center justify-center py-20 sm:py-28 md:py-[137px] px-6 sm:px-10 md:px-[110px] mx-auto"
+            className="w-full h-screen flex items-center justify-center py-20 sm:py-28 md:py-[137px] px-6 sm:px-10 md:px-[110px] mx-auto"
             style={{ backgroundImage: "url('./assets/hero.svg')" }}
         >
             <motion.div
