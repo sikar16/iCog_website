@@ -72,7 +72,7 @@ export default function LatestNews() {
     };
 
     return (
-        <div ref={ref} className="lg:px-[150px] pt-[120px] pb-[116px] mx-auto overflow-hidden">
+        <div ref={ref} className="px-4 lg:px-[100px] xl:px-[150px] pt-[120px] pb-[116px] mx-auto overflow-hidden">
             {/* Title animation */}
             <motion.div
                 initial="hidden"
@@ -83,14 +83,19 @@ export default function LatestNews() {
                 }}
                 className="text-center"
             >
-                <p className="text-[38px] font-semibold">
+                <p className="text-[30px] md:text-[38px] font-semibold">
                     Latest news & articles
                 </p>
             </motion.div>
 
             {/* Cards animation */}
             <motion.div
-                className="mt-[50px] lg:flex justify-around gap-4"
+                className="
+                    mt-10 md:mt-[50px]
+                    grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+                    gap-6 md:gap-8 lg:gap-10
+                    justify-items-center
+                "
                 initial="hidden"
                 animate={controls}
                 variants={{

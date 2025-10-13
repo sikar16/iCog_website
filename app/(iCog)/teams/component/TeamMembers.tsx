@@ -182,10 +182,10 @@ export default function TeamMembers() {
             <div className="max-w-6xl mx-auto px-4 text-center relative">
                 <h2 className="text-4xl font-bold mb-10">Meet Our Advisory Board</h2>
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-16 flex items-center justify-center text-center">
-                    <TabsList className="bg-black rounded-full px-2 py-2 flex h-11">
+                    <TabsList className="bg-white  rounded-full px-2 py-2 flex h-11 shadow-lg">
                         <TabsTrigger
                             value="board"
-                            className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300 ${activeTab === "board" ? "bg-white text-black" : "text-gray-300 bg-transparent"
+                            className={`rounded-full px-5 py-1 text-sm font-semibold transition-colors duration-300 ${activeTab === "board" ? "bg-white text-black" : "text-gray-300 "
                                 }`}
                         >
                             Board Members
@@ -193,7 +193,7 @@ export default function TeamMembers() {
 
                         <TabsTrigger
                             value="youth"
-                            className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300 ${activeTab === "youth" ? "bg-white text-black" : "text-gray-300 bg-transparent"
+                            className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300 ${activeTab === "youth" ? "bg-white text-black" : "text-gray-300 "
                                 }`}
                         >
                             Youth Advisory

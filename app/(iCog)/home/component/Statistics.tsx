@@ -16,11 +16,12 @@ export default function Statistics() {
     return (
         <section
             ref={sectionRef}
-            className="w-full py-8 md:py-[94px] px-4 sm:px-6 lg:px-8 h-screen  flex items-center justify-center"
+            className="w-full py-8 md:py-[94px] px-4 sm:px-8 lg:px-8 flex lg:items-center justify-center"
         >
-            <div className="grid grid-cols-1 lg:grid-cols-12 max-w-6xl mx-auto gap-8 lg:gap-0">
-                <div className="lg:col-span-9 max-w-full lg:max-w-[630px] mx-auto lg:mx-0">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-0">
+            <div className="grid grid-cols-1 lg:grid-cols-12 w-full lg:max-w-6xl lg:mx-auto gap-8 lg:gap-0 ">
+                {/* Image Grid */}
+                <div className="w-full lg:col-span-9 lg:max-w-[630px] mx-auto lg:mx-0">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-0 w-full">
                         {[
                             { src: "/assets/statistics1.jpg", alt: "Conference room training session", delay: 0, col: "lg:col-span-6 lg:mt-[14px]" },
                             { src: "/assets/statistics2.jpg", alt: "Certificate presentation ceremony", delay: 0.3, col: "lg:col-span-6 lg:mt-[-18px] lg:mb-4 lg:translate-x-[1%]" },
@@ -33,8 +34,13 @@ export default function Statistics() {
                                 initial="hidden"
                                 animate={isInView ? "visible" : "hidden"}
                                 transition={{ duration: 0.5, delay: item.delay }}
-                                className={`rounded-2xl overflow-hidden shadow-lg w-full mx-auto lg:mx-0 ${item.col} 
-                                ${index < 2 ? "max-w-[299px] lg:w-[299px] h-[200px] sm:h-[250px] lg:h-[277px]" : index === 2 ? "max-w-[339px] lg:w-[339px] h-[200px] sm:h-[220px] lg:h-[243px]" : "max-w-[333px] lg:w-[333px] h-[200px] sm:h-[220px] lg:h-[290px]"}`}
+                                className={`overflow-hidden shadow-lg w-full ${item.col} 
+                                ${index < 2
+                                        ? "h-[20vh] min-h-[300px] sm:h-[260px] lg:h-[277px] lg:max-w-[299px] lg:w-[299px] rounded-2xl lg:rounded-2xl"
+                                        : index === 2
+                                            ? "h-[20vh] min-h-[300px] sm:h-[240px] lg:h-[243px] lg:max-w-[339px] lg:w-[339px] rounded-2xl lg:rounded-2xl"
+                                            : "h-[20vh] min-h-[300px] sm:h-[260px] lg:h-[290px] lg:max-w-[333px] lg:w-[333px] rounded-2xl lg:rounded-2xl"
+                                    }`}
                             >
                                 <Image
                                     src={item.src}
@@ -53,7 +59,7 @@ export default function Statistics() {
                     initial={{ opacity: 0, y: 40 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                     transition={{ duration: 0.7, delay: 1.1 }}
-                    className="lg:col-span-3 w-full lg:w-[497px] mx-auto lg:mx-0"
+                    className="lg:col-span-3 w-full lg:w-[497px] mx-auto lg:mx-0 px-4 lg:px-0"
                 >
                     <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12 text-center lg:text-left">
                         <div>
@@ -66,7 +72,9 @@ export default function Statistics() {
                         </div>
                         <div>
                             <p className="text-5xl sm:text-6xl lg:text-[64px] font-bold">118K+</p>
-                            <p className="text-[#626161] text-sm sm:text-base lg:text-[14px] mt-2">Impacted kids and young adults</p>
+                            <p className="text-[#626161] text-sm sm:text-base lg:text-[14px] mt-2">
+                                Impacted kids and young adults
+                            </p>
                         </div>
                     </div>
                 </motion.div>

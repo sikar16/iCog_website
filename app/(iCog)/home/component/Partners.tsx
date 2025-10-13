@@ -19,7 +19,7 @@ export default function Partners() {
     <div className="w-full bg-white rounded-2xl p-4 sm:p-6 pt-[110px] ">
       <div className="relative overflow-hidden mx-[50px] lg:mx-[127px]">
         <div
-          className={`flex gap-[70px] animate-scroll`}
+          className={`flex gap-[30px] md:gap-[70px] animate-scroll`}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           style={{

@@ -56,7 +56,7 @@ export default function CardImagesWithText({
                         {/* View Blog Link */}
                         <a
                             href="#"
-                            className="flex items-center gap-1 text-[#81B041] font-medium text-sm hover:underline transition-colors duration-200"
+                            className="flex items-center gap-1 text-[#81B041] font-medium text-sm  transition-colors duration-200"
                         >
                             View Blog
                             <ArrowUpRight className="w-4 h-4 text-[#81B041]" />
