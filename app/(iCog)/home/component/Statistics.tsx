@@ -16,16 +16,16 @@ export default function Statistics() {
     return (
         <section
             ref={sectionRef}
-            className="w-full py-8 md:py-[94px] px-4 sm:px-6 lg:px-8"
+            className="w-full py-8 md:py-[94px] px-4 sm:px-6 lg:px-8 h-screen  flex items-center justify-center"
         >
             <div className="grid grid-cols-1 lg:grid-cols-12 max-w-6xl mx-auto gap-8 lg:gap-0">
                 <div className="lg:col-span-9 max-w-full lg:max-w-[630px] mx-auto lg:mx-0">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-0">
                         {[
                             { src: "/assets/statistics1.jpg", alt: "Conference room training session", delay: 0, col: "lg:col-span-6 lg:mt-[14px]" },
-                            { src: "/assets/statistics2.jpg", alt: "Certificate presentation ceremony", delay: 0.3, col: "lg:col-span-6 lg:mt-[-17px] lg:mb-4" },
-                            { src: "/assets/statistics3.jpg", alt: "Meeting room with presentation setup", delay: 0.6, col: "lg:col-span-7 lg:mt-3" },
-                            { src: "/assets/statistics4.jpg", alt: "Computer lab with training equipment", delay: 0.9, col: "lg:relative lg:top-[-17px] lg:translate-x-[-5%]" },
+                            { src: "/assets/statistics2.jpg", alt: "Certificate presentation ceremony", delay: 0.3, col: "lg:col-span-6 lg:mt-[-18px] lg:mb-4 lg:translate-x-[1%]" },
+                            { src: "/assets/statistics3.jpg", alt: "Meeting room with presentation setup", delay: 0.6, col: "lg:col-span-7 lg:mt-5" },
+                            { src: "/assets/statistics4.jpg", alt: "Computer lab with training equipment", delay: 0.9, col: "lg:relative lg:top-[-14px] lg:translate-x-[-3%]" },
                         ].map((item, index) => (
                             <motion.div
                                 key={index}

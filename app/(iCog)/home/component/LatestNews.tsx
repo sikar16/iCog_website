@@ -1,7 +1,7 @@
-"use client"
-import CardImagesWithText from '../../../../components/common/CardImagesWithText';
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import CardImagesWithText from "../../../../components/common/CardImagesWithText";
+import React, { useRef, useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 export default function LatestNews() {
     const blogPosts = [
@@ -9,77 +9,102 @@ export default function LatestNews() {
             date: "October 31, 2024",
             imageSrc: "/assets/lates.svg",
             readTime: "4 minutes read",
-            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing"
+            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
             imageSrc: "/assets/lates3.png",
             readTime: "4 minutes read",
-            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing"
+            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
             imageSrc: "/assets/lates2.svg",
             readTime: "4 minutes read",
-            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing"
+            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
     ];
 
-    const cardAnimation = {
-        hidden: { opacity: 0, y: 50, scale: 0.95 },
-        visible: {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { amount: 0.4 });
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            // when in view, trigger the sequence
+            controls.start("titleVisible");
+            const timer = setTimeout(() => {
+                controls.start("cardsVisible");
+            }, 800); // small delay before cards
+
+            return () => clearTimeout(timer);
+        } else {
+            // when out of view, reset animations
+            controls.start("hidden");
+        }
+    }, [isInView, controls]);
+
+    const variants = {
+        hidden: { opacity: 0, y: 100 },
+        titleVisible: {
             opacity: 1,
             y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut"
-            }
-        }
-    };
-
-    const containerAnimation = {
-        hidden: { opacity: 0 },
-        visible: {
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
+        cardsVisible: {
             opacity: 1,
+            y: 0,
             transition: {
-                staggerChildren: 0, // 👈 makes cards appear one by one
-                delayChildren: 0
-            }
-        }
+                delayChildren: 0.2,
+                staggerChildren: 0.2,
+                duration: 0.8,
+                ease: "easeOut",
+            },
+        },
+        card: {
+            hidden: { opacity: 1, y: 10 },
+            visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 1.2, ease: "easeOut" },
+            },
+        },
     };
 
     return (
-        <div className='lg:px-[150px] pt-[90px] pb-[116px] mx-auto'>
+        <div ref={ref} className="lg:px-[150px] pt-[120px] pb-[116px] mx-auto overflow-hidden">
             {/* Title animation */}
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                // viewport={{ once: false, amount: 0.3 }} // 👈 animate only first time
-                transition={{ duration: 0.6 }}
+                initial="hidden"
+                animate={controls}
+                variants={{
+                    hidden: variants.hidden,
+                    titleVisible: variants.titleVisible,
+                }}
+                className="text-center"
             >
-                <p className='text-[38px] text-center font-semibold'>
+                <p className="text-[38px] font-semibold">
                     Latest news & articles
                 </p>
             </motion.div>
 
             {/* Cards animation */}
             <motion.div
-                className='mt-[50px] lg:flex justify-around gap-4'
-                variants={containerAnimation}
+                className="mt-[50px] lg:flex justify-around gap-4"
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                animate={controls}
+                variants={{
+                    hidden: variants.hidden,
+                    cardsVisible: variants.cardsVisible,
+                }}
             >
                 {blogPosts.map((post, index) => (
                     <motion.div
                         key={index}
-                        variants={cardAnimation}
-                    // whileHover={{
-                    //     y: -5,
-                    //     scale: 1.02,
-                    //     transition: { duration: 0.2 }
-                    // }}
+                        variants={{
+                            hidden: variants.card.hidden,
+                            visible: variants.card.visible,
+                        }}
                     >
                         <CardImagesWithText
                             imageSrc={post.imageSrc}
