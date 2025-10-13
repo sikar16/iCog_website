@@ -79,7 +79,7 @@ function SolutionSection({ index, logo, logoAlt, title, description, image, imag
         <motion.div
             ref={sectionRef}
             style={{ scale, opacity, y }}
-            className="sticky top-[30%] px-4 md:px-20 bg-white pb-5 flex items-center"
+            className="sticky top-10 px-4 md:px-20 bg-white pb-5 flex items-center"
         >
             <div className={`flex flex-col rounded-4xl shadow-xl ${isOdd ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between h-[500px] w-full`}>
                 <div className="md:w-[600px] text-center md:text-left p-[77px]">
@@ -124,7 +124,7 @@ function SolutionSection({ index, logo, logoAlt, title, description, image, imag
                     transition={{ duration: 0.8 }}
                     style={{ filter: grayscale }}
                     viewport={{ once: true }}
-                    className="relative w-full md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden h-[400px] md:h-[500px]"
+                    className="relative w-full md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
                 >
                     <Image
                         src={image}

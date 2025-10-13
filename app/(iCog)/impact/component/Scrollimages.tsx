@@ -24,8 +24,7 @@ export default function WhereWeBegun() {
     // Main center photo - starts centered and large, then moves to left and becomes same size as others
     const centerX = useTransform(scrollYProgress, [0, 0.6, 1], [0, 0, -350])
     const centerY = useTransform(scrollYProgress, [0, 0.6, 1], [0, 0, -180])
-    const centerScale = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0.6]) // Same size as others
-    const centerRotate = useTransform(scrollYProgress, [0, 0.6, 1], [0, 0, -8])
+    const centerScale = useTransform(scrollYProgress, [0, 0, 1], [1, 1, 0.6]) // Same size as others
     const centerOpacity = useTransform(scrollYProgress, [0, 1], [1, 1])
 
     // Background photos - appear behind center photo, then spread out
@@ -33,49 +32,41 @@ export default function WhereWeBegun() {
     const bgPhoto1X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 400])
     const bgPhoto1Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -290])
     const bgPhoto1Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.62])
-    const bgPhoto1Rotate = useTransform(scrollYProgress, [0.9, 0.6, 1], [0, 0, 10])
     const bgPhoto1Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto2X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -300])
     const bgPhoto2Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -250])
     const bgPhoto2Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.58])
-    const bgPhoto2Rotate = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -12])
     const bgPhoto2Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto3X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 380])
     const bgPhoto3Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 200])
     const bgPhoto3Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.59])
-    const bgPhoto3Rotate = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -15])
     const bgPhoto3Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto4X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -400])
     const bgPhoto4Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 180])
     const bgPhoto4Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.61])
-    const bgPhoto4Rotate = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 8])
     const bgPhoto4Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto5X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 350])
     const bgPhoto5Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -150])
     const bgPhoto5Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.57])
-    const bgPhoto5Rotate = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 5])
     const bgPhoto5Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto6X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -350])
     const bgPhoto6Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -120])
     const bgPhoto6Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.63])
-    const bgPhoto6Rotate = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -5])
     const bgPhoto6Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto7X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 320])
     const bgPhoto7Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 150])
     const bgPhoto7Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.58])
-    const bgPhoto7Rotate = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 12])
     const bgPhoto7Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto8X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -320])
     const bgPhoto8Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 120])
     const bgPhoto8Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.6])
-    const bgPhoto8Rotate = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -10])
     const bgPhoto8Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     return (
@@ -92,7 +83,6 @@ export default function WhereWeBegun() {
                                 x: bgPhoto1X,
                                 y: bgPhoto1Y,
                                 scale: bgPhoto1Scale,
-                                rotate: bgPhoto1Rotate,
                                 opacity: bgPhoto1Opacity,
                             }}
                         >
@@ -108,12 +98,11 @@ export default function WhereWeBegun() {
 
                         {/* Photo 2 - Top Left */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px]"
                             style={{
                                 x: bgPhoto2X,
                                 y: bgPhoto2Y,
                                 scale: bgPhoto2Scale,
-                                rotate: bgPhoto2Rotate,
                                 opacity: bgPhoto2Opacity,
                             }}
                         >
@@ -134,7 +123,6 @@ export default function WhereWeBegun() {
                                 x: bgPhoto3X,
                                 y: bgPhoto3Y,
                                 scale: bgPhoto3Scale,
-                                rotate: bgPhoto3Rotate,
                                 opacity: bgPhoto3Opacity,
                             }}
                         >
@@ -155,7 +143,6 @@ export default function WhereWeBegun() {
                                 x: bgPhoto4X,
                                 y: bgPhoto4Y,
                                 scale: bgPhoto4Scale,
-                                rotate: bgPhoto4Rotate,
                                 opacity: bgPhoto4Opacity,
                             }}
                         >
@@ -176,7 +163,6 @@ export default function WhereWeBegun() {
                                 x: bgPhoto5X,
                                 y: bgPhoto5Y,
                                 scale: bgPhoto5Scale,
-                                rotate: bgPhoto5Rotate,
                                 opacity: bgPhoto5Opacity,
                             }}
                         >
@@ -191,13 +177,12 @@ export default function WhereWeBegun() {
                         </motion.div>
 
                         {/* Photo 6 - Top Middle Left */}
-                        {/* <motion.div
+                        <motion.div
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
                             style={{
                                 x: bgPhoto6X,
                                 y: bgPhoto6Y,
                                 scale: bgPhoto6Scale,
-                                rotate: bgPhoto6Rotate,
                                 opacity: bgPhoto6Opacity,
                             }}
                         >
@@ -209,7 +194,7 @@ export default function WhereWeBegun() {
                                     className="object-cover"
                                 />
                             </div>
-                        </motion.div> */}
+                        </motion.div>
 
                         {/* Photo 7 - Bottom Middle Right */}
                         <motion.div
@@ -218,7 +203,6 @@ export default function WhereWeBegun() {
                                 x: bgPhoto7X,
                                 y: bgPhoto7Y,
                                 scale: bgPhoto7Scale,
-                                rotate: bgPhoto7Rotate,
                                 opacity: bgPhoto7Opacity,
                             }}
                         >
@@ -239,7 +223,6 @@ export default function WhereWeBegun() {
                                 x: bgPhoto8X,
                                 y: bgPhoto8Y,
                                 scale: bgPhoto8Scale,
-                                rotate: bgPhoto8Rotate,
                                 opacity: bgPhoto8Opacity,
                             }}
                         >
@@ -260,7 +243,6 @@ export default function WhereWeBegun() {
                                 x: centerX,
                                 y: centerY,
                                 scale: centerScale,
-                                rotate: centerRotate,
                                 opacity: centerOpacity,
                             }}
                         >
