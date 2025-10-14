@@ -8,7 +8,7 @@ import Flag from './component/Flag'
 
 export default function page() {
     return (
-        <div>
+        <div className="">
             <Scrollimages />
             <IdentifyingNeeds />
             <Flag />

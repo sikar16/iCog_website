@@ -27,7 +27,7 @@ const boardMembers: Member[] = [
         id: 2,
         name: "Melat Kassaye",
         role: "Junior UI/UX Designer",
-        image: "/assets/2025-09-24 05.50.42.jpg",
+        image: "/assets",
         hoverImage: "/team/melat2.jpg",
         description: "Melat is a creative designer passionate about crafting intuitive interfaces...",
     },

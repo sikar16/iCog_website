@@ -78,7 +78,7 @@ export default function WhereWeBegun() {
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
+                                    src="/assets/2025-09-24 05.52.06.jpg"
                                     alt="iCog workspace"
                                     fill
                                     className="object-cover"
@@ -98,7 +98,7 @@ export default function WhereWeBegun() {
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
+                                    src="/assets/2025-09-24 05.52.16.jpg"
                                     alt="iCog collaboration"
                                     fill
                                     className="object-cover"
@@ -118,7 +118,7 @@ export default function WhereWeBegun() {
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
+                                    src="/assets/2025-09-24 05.51.31.jpg"
                                     alt="iCog team meeting"
                                     fill
                                     className="object-cover"
@@ -138,7 +138,7 @@ export default function WhereWeBegun() {
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
+                                    src="/assets/photo_2025-07-09_14-05-17.jpg"
                                     alt="iCog innovation"
                                     fill
                                     className="object-cover"
@@ -158,7 +158,7 @@ export default function WhereWeBegun() {
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
+                                    src="/assets/2025-09-24 05.51.37.jpg"
                                     alt="iCog development"
                                     fill
                                     className="object-cover"
@@ -198,7 +198,7 @@ export default function WhereWeBegun() {
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
+                                    src="/assets/photo_2025-06-26_15-26-03.jpg"
                                     alt="iCog workspace"
                                     fill
                                     className="object-cover"
@@ -218,7 +218,7 @@ export default function WhereWeBegun() {
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
+                                    src="/assets/2025-09-24 05.52.11.jpg"
                                     alt="iCog collaboration"
                                     fill
                                     className="object-cover"

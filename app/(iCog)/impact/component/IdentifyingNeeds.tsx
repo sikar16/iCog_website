@@ -8,7 +8,7 @@ import { BusFront } from "lucide-react";
 
 const needs = [
     {
-        image: "/assets/2025-09-24 05.50.42.jpg",
+        image: "/assets/2025-09-24 05.52.21.jpg",
         title: "Limited access to technology education",
     },
     {
@@ -16,7 +16,7 @@ const needs = [
         title: "Lack of focus on kids and young people in tech education",
     },
     {
-        image: "/assets/2025-09-24 05.50.42.jpg",
+        image: "/assets/photo_2025-06-17_16-17-25.jpg",
         title: "Lack of localized solutions utilizing emerging technologies",
     },
 ];

@@ -7,7 +7,7 @@ import Hero from './component/Hero'
 
 export default function page() {
     return (
-        <div>
+        <div className="">
             <Hero />
             <CultureSection />
             <JoinOurTeam />
