@@ -17,7 +17,7 @@ export default function BuildingBlock() {
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                         className='inline-block mb-8'
                     >
                         <Image
@@ -29,16 +29,22 @@ export default function BuildingBlock() {
                         />
                     </motion.div>
 
-                    <p className='text-gray-300 leading-relaxed text-base md:text-lg'>
+                    <motion.p
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className='text-gray-300 leading-relaxed text-base md:text-lg'>
                         A national innovation competition empowering youth (18–28) to turn local challenges into tech-based solutions, supporting grassroots innovation and early-stage startups across 15 Ethiopian cities.
 
-                    </p>
+                    </motion.p>
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 120 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    viewport={{ once: true }}
                     className="relative w-[450px] md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
                 >
                     <Image
@@ -58,7 +64,7 @@ export default function BuildingBlock() {
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                         className='inline-block mb-8'
                     >
                         <Image
@@ -70,16 +76,22 @@ export default function BuildingBlock() {
                         />
                     </motion.div>
 
-                    <p className='text-gray-300 leading-relaxed text-base md:text-lg'>
+                    <motion.p
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className='text-gray-300 leading-relaxed text-base md:text-lg'>
                         An online platform that kickstarts K–12 students’ coding journeys with culturally engaging content—focused on the African diaspora while creating job opportunities for youth in Africa.
 
-                    </p>
+                    </motion.p>
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 120 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    viewport={{ once: true }}
                     className="relative w-[450px] md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
                 >
                     <Image
@@ -109,15 +121,21 @@ export default function BuildingBlock() {
 
                     </motion.div>
 
-                    <p className='text-gray-300 leading-relaxed text-base md:text-lg'>
+                    <motion.p
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className='text-gray-300 leading-relaxed text-base md:text-lg'>
                         An engaging summer program that introduces students to coding and digital skills through hands-on learning and creative activities like pottery, chess, drone training, and college prep. The camp encourages exploration, critical thinking, and fun in a supportive environment.
-                    </p>
+                    </motion.p>
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 120 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    viewport={{ once: true }}
                     className="relative w-[450px] md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
                 >
                     <Image

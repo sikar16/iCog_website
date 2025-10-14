@@ -24,13 +24,13 @@ const needs = [
 export default function IdentifyingNeeds() {
     const { ref, inView } = useInView({
         triggerOnce: false,
-        threshold: 0.2,
+        threshold: 0.6,
     });
 
     return (
         <section
             ref={ref}
-            className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 py-20"
+            className="flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 py-20"
         >
             <div className="max-w-6xl w-full mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-[39px] font-extrabold text-foreground mb-14 tracking-tight">
@@ -56,7 +56,17 @@ export default function IdentifyingNeeds() {
                         >
                             <Card className="w-full max-w-[480px] md:max-w-[520px] h-[180px] bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center px-5 py-4">
                                 <div className="flex items-center gap-5 w-full">
-                                    <div className="flex-shrink-0 rounded-xl overflow-hidden w-[168px] h-[147px] shadow-sm">
+                                    <motion.div className="flex-shrink-0 rounded-xl overflow-hidden w-[168px] h-[147px] shadow-sm"
+                                        initial={{ opacity: 0, y: 100 }}
+                                        animate={
+                                            inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+                                        }
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: index * 0.2,
+                                            ease: "easeOut",
+                                        }}
+                                    >
                                         <Image
                                             src={need.image}
                                             alt={need.title}
@@ -64,7 +74,7 @@ export default function IdentifyingNeeds() {
                                             height={147}
                                             className="object-cover w-full h-full rounded-xl"
                                         />
-                                    </div>
+                                    </motion.div>
 
                                     <div className="flex flex-col items-start justify-center text-left">
                                         <div className="bg-gradient-to-b from-gray-900 to-gray-100 p-2 rounded-lg shadow-sm mb-3">

@@ -1,4 +1,5 @@
 "use client"
+
 import Image from "next/image"
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
@@ -10,7 +11,6 @@ export default function Solutions() {
         <div ref={containerRef} className="bg-black text-white">
             <p className="text-center text-3xl md:text-4xl font-bold pt-16 pb-8">Our Solution</p>
 
-            {/* Solution 1: Big Truck Ethiopia */}
             <SolutionSection
                 index={0}
                 logo="/logodg2-cropped.webp"
@@ -21,7 +21,6 @@ export default function Solutions() {
                 imageAlt="Digital Truck"
             />
 
-            {/* Solution 2: Leyu */}
             <SolutionSection
                 index={1}
                 logo="/2025-10-10 10.32.39.jpg"
@@ -32,7 +31,6 @@ export default function Solutions() {
                 imageAlt="Leyu Platform"
             />
 
-            {/* Solution 3: Training Solution */}
             <SolutionSection
                 index={2}
                 title="Training Solution"
@@ -41,7 +39,6 @@ export default function Solutions() {
                 imageAlt="Training Solution"
             />
 
-            {/* Solution 4: Digital Literacy */}
             <SolutionSection
                 index={3}
                 title="Digital literacy"
@@ -50,7 +47,6 @@ export default function Solutions() {
                 imageAlt="Digital Literacy"
             />
 
-            {/* Solution 5: For Her */}
             <SolutionSection
                 index={4}
                 title="For Her"
@@ -72,57 +68,79 @@ interface SolutionSectionProps {
     imageAlt: string
 }
 
-function SolutionSection({ index, logo, logoAlt, title, description, image, imageAlt }: SolutionSectionProps) {
+function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }: SolutionSectionProps) {
     const sectionRef = useRef<HTMLDivElement>(null)
-
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"],
     })
 
-    // Scale and opacity for the covering effect
-    const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.8, 1, 1, 0.95])
+    const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 1, 0.95])
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.8])
     const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -50])
 
     return (
-        <motion.div ref={sectionRef} style={{ scale, opacity, y }} className="sticky top-0 px-4 md:px-20 py-16 bg-black">
+        <motion.div
+            ref={sectionRef}
+            style={{ scale, opacity, y }}
+            className="sticky top-0 px-4 md:px-20 py-16 bg-black"
+        >
             <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 min-h-[590px]">
+
+                {/* LEFT SIDE — TEXT */}
                 <div className="md:w-[500px] text-center md:text-left">
-                    {logo && (
+
+                    {/* 1️⃣ Title or Logo first */}
+                    {logo ? (
                         <motion.div
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 80 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                             viewport={{ once: true }}
                             className="inline-block mb-8"
                         >
                             <Image
-                                src={logo || "/placeholder.svg"}
+                                src={logo}
                                 alt={logoAlt || "Logo"}
                                 height={170}
                                 width={260}
                                 className="rounded-xl shadow-lg"
                             />
                         </motion.div>
-                    )}
-
-                    {title && !logo && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
+                    ) : (
+                        <motion.h3
+                            initial={{ opacity: 0, y: 80 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                             viewport={{ once: true }}
-                            className="mb-8"
+                            className="text-4xl md:text-5xl font-bold mb-8"
                         >
-                            <h3 className="text-4xl md:text-5xl font-bold">{title}</h3>
-                        </motion.div>
+                            {title}
+                        </motion.h3>
                     )}
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 30 }}
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className="relative w-full md:hidden mb-8 h-[300px] rounded-xl overflow-hidden"
+                    >
+                        <Image
+                            src={image}
+                            alt={imageAlt}
+                            fill
+                            className="object-cover rounded-xl"
+                        />
+                    </motion.div>
+
+
+
+                    {/* 3️⃣ Description slides up last */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                         viewport={{ once: true }}
                         className="text-gray-300 leading-relaxed text-base md:text-lg"
                     >
@@ -130,15 +148,15 @@ function SolutionSection({ index, logo, logoAlt, title, description, image, imag
                     </motion.p>
                 </div>
 
+                {/* RIGHT SIDE — IMAGE (desktop) */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 120 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="relative w-full md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
+                    className="hidden md:block relative w-full md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
                 >
-                    <Image src={image} alt={imageAlt} fill className="rounded-xl object-cover" />
-
+                    <Image src={image} alt={imageAlt} fill className="object-cover rounded-xl" />
                     <div className="absolute inset-0 bg-black/10"></div>
                 </motion.div>
             </div>

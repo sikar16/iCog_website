@@ -10,25 +10,16 @@ export default function WhereWeBegun() {
         target: containerRef,
         offset: ["start start", "end end"],
     })
+    const centerSize = useTransform(scrollYProgress, [0, 0.5, 1], [475, 475, 250])
 
-    // Animation stages:
-    // Stage 1 (0-0.2): Single centered photo
-    // Stage 2 (0.2-0.6): Multiple photos appear behind center photo
-    // Stage 3 (0.6-1): All photos spread out (including the center photo moves to left)
-    // Text appears only after images are in final positions
 
-    // Text animations - appears only after images are in position
     const textOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1])
     const textScale = useTransform(scrollYProgress, [0.8, 0.9], [0.8, 1])
-
-    // Main center photo - starts centered and large, then moves to left and becomes same size as others
     const centerX = useTransform(scrollYProgress, [0, 0.6, 1], [0, 0, -350])
     const centerY = useTransform(scrollYProgress, [0, 0.6, 1], [0, 0, -180])
-    const centerScale = useTransform(scrollYProgress, [0, 0, 1], [1, 1, 0.6]) // Same size as others
+    const centerScale = useTransform(scrollYProgress, [0, 0, 1], [1, 1, 0.6])
     const centerOpacity = useTransform(scrollYProgress, [0, 1], [1, 1])
 
-    // Background photos - appear behind center photo, then spread out
-    // All photos should have similar scale in final position (around 0.6)
     const bgPhoto1X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 400])
     const bgPhoto1Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -290])
     const bgPhoto1Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.62])
@@ -71,14 +62,13 @@ export default function WhereWeBegun() {
 
     return (
         <div ref={containerRef} className="relative h-[180vh] bg-background">
-            <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+            <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden pt-[40px]">
                 <div className="relative w-full h-full flex items-center justify-center">
                     <div className="relative w-[600px] h-[600px]">
-                        {/* Background Photos - appear behind center photo and stay visible */}
 
                         {/* Photo 1 - Top Right */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px]"
                             style={{
                                 x: bgPhoto1X,
                                 y: bgPhoto1Y,
@@ -86,7 +76,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto1Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog workspace"
@@ -98,7 +88,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 2 - Top Left */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px]"
+                            className="absolute top-[45%] left-[20%] -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px]"
                             style={{
                                 x: bgPhoto2X,
                                 y: bgPhoto2Y,
@@ -106,7 +96,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto2Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog collaboration"
@@ -118,7 +108,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 3 - Bottom Right */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-1/2 left-[74%] -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px]"
                             style={{
                                 x: bgPhoto3X,
                                 y: bgPhoto3Y,
@@ -126,7 +116,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto3Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog team meeting"
@@ -138,7 +128,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 4 - Bottom Left */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-[55%] left-[70%] -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px]"
                             style={{
                                 x: bgPhoto4X,
                                 y: bgPhoto4Y,
@@ -146,7 +136,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto4Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog innovation"
@@ -158,7 +148,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 5 - Top Middle Right */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-[40%] left-[70%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
                             style={{
                                 x: bgPhoto5X,
                                 y: bgPhoto5Y,
@@ -166,7 +156,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto5Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog development"
@@ -177,7 +167,7 @@ export default function WhereWeBegun() {
                         </motion.div>
 
                         {/* Photo 6 - Top Middle Left */}
-                        <motion.div
+                        {/* <motion.div
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
                             style={{
                                 x: bgPhoto6X,
@@ -186,7 +176,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto6Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog team"
@@ -194,11 +184,11 @@ export default function WhereWeBegun() {
                                     className="object-cover"
                                 />
                             </div>
-                        </motion.div>
+                        </motion.div> */}
 
                         {/* Photo 7 - Bottom Middle Right */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
                             style={{
                                 x: bgPhoto7X,
                                 y: bgPhoto7Y,
@@ -206,7 +196,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto7Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog workspace"
@@ -218,7 +208,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 8 - Bottom Middle Left */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-1/2 left-[20%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
                             style={{
                                 x: bgPhoto8X,
                                 y: bgPhoto8Y,
@@ -226,7 +216,7 @@ export default function WhereWeBegun() {
                                 opacity: bgPhoto8Opacity,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog collaboration"
@@ -238,15 +228,17 @@ export default function WhereWeBegun() {
 
                         {/* Main Photo - starts as center, then moves to top-left position with same size as others */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2"
                             style={{
                                 x: centerX,
                                 y: centerY,
                                 scale: centerScale,
                                 opacity: centerOpacity,
+                                width: centerSize,
+                                height: centerSize,
                             }}
                         >
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
                                 <Image
                                     src="/assets/2025-09-24 05.50.42.jpg"
                                     alt="iCog team"
@@ -266,9 +258,9 @@ export default function WhereWeBegun() {
                             scale: textScale,
                         }}
                     >
-                        <div className="text-center max-w-2xl mx-auto px-8">
-                            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 text-balance">Where we begun</h2>
-                            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
+                        <div className="text-center max-w-[450px] mx-auto px-8">
+                            <h2 className="text-2xl md:text-5xl font-bold text-foreground mb-6 text-balance">Where we begun</h2>
+                            <p className="text-[16px] text-muted-foreground leading-relaxed text-pretty">
                                 iCog began in 2016 as a project under iCog Labs with a simple idea to make technology a force for good,
                                 accessible to all. It has since grown into a company focused on training, product development, and
                                 consultancy.
