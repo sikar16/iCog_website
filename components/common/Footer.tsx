@@ -34,13 +34,13 @@ export default function Footer() {
                             <h3 className="font-semibold mb-2 text-base sm:text-lg">
                                 Sign-up to get Newsletter
                             </h3>
-                            <div className="flex flex-col sm:flex-row gap-2">
+                            <div className="flex flex-col flex-row gap-2">
                                 <Input
                                     type="email"
                                     placeholder="Enter your email"
                                     className="flex-1 w-[150px] bg-[#2E2E2E] border-none"
                                 />
-                                <Button className="bg-white text-black hover:bg-white rounded-[0px_8px_0px_8px] w-full sm:w-auto">
+                                <Button className="bg-white text-black hover:bg-white rounded-[0px_8px_0px_8px] w-full w-auto">
                                     Send Email
                                 </Button>
                             </div>

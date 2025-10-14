@@ -30,7 +30,7 @@ export default function Features() {
                 index={2}
                 title="Training Solution"
                 description="Training Solution is a training facilitation platform that helps organizations design, manage, and measure training more efficiently. From structuring content to coordinating sessions and tracking outcomes, TFP streamlines the entire training process in one integrated tool."
-                image="/logodg2-cropped.webp"
+                image="/assets/photo_2025-06-26_11-38-36.jpg"
                 imageAlt="Training Solution"
             />
         </div>
@@ -57,20 +57,11 @@ function SolutionSection({ index, logo, logoAlt, title, description, image, imag
     const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 0], [0.8, 1, 1, 1.95])
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.8])
     const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -50])
+
     const grayscale = useTransform(
         scrollYProgress,
-        index === 0
-            ? [0, 0]
-            : [0, 0.5, 0.7, 0.9, 1],
-        index === 0
-            ? ["grayscale(0%)", "grayscale(0%)"]
-            : [
-                "grayscale(0%)",
-                "grayscale(0%)",
-                "grayscale(100%)",
-                "grayscale(0%)",
-                "grayscale(0%)"
-            ]
+        [0, 0.3, 0.6, 1],
+        ["grayscale(0%)", "grayscale(0%)", "grayscale(100%)", "grayscale(100%)"],
     )
 
     const isOdd = index % 2 !== 0
@@ -79,9 +70,11 @@ function SolutionSection({ index, logo, logoAlt, title, description, image, imag
         <motion.div
             ref={sectionRef}
             style={{ scale, opacity, y }}
-            className="sticky top-10 px-4 md:px-20 bg-white pb-5 flex items-center"
+            className="sticky top-10  bg-white pb-5 flex items-center"
         >
-            <div className={`flex flex-col rounded-4xl shadow-xl ${isOdd ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between h-[500px] w-full`}>
+            <div
+                className={`flex flex-col rounded-4xl shadow-xl ${isOdd ? "md:flex-row-reverse ps-[100px]" : "md:flex-row"} items-center justify-between h-[700px] w-full`}
+            >
                 <div className="md:w-[600px] text-center md:text-left p-[77px]">
                     {title && !logo && (
                         <motion.div
@@ -119,19 +112,14 @@ function SolutionSection({ index, logo, logoAlt, title, description, image, imag
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 1 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
                     style={{ filter: grayscale }}
                     viewport={{ once: true }}
-                    className="relative w-full md:w-[480px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]"
+                    className="relative w-full md:w-[550px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden  h-[550px] me-[80px]"
                 >
-                    <Image
-                        src={image}
-                        alt={imageAlt}
-                        fill
-                        className="rounded-xl object-cover"
-                    />
+                    <Image src={image || "/placeholder.svg"} alt={imageAlt} fill className="rounded-xl object-cover" />
                     <div className="absolute inset-0 bg-black/10"></div>
                 </motion.div>
             </div>
