@@ -27,7 +27,7 @@ const boardMembers: Member[] = [
         id: 2,
         name: "Melat Kassaye",
         role: "Junior UI/UX Designer",
-        image: "/assets",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/melat2.jpg",
         description: "Melat is a creative designer passionate about crafting intuitive interfaces...",
     },
@@ -35,7 +35,7 @@ const boardMembers: Member[] = [
         id: 3,
         name: "Betelhem Dereselign",
         role: "Web Designer & Developer",
-        image: "/team/betelhem1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/betelhem2.jpg",
         description: "Betelhem specializes in creating responsive web experiences...",
     },
@@ -43,7 +43,7 @@ const boardMembers: Member[] = [
         id: 4,
         name: "Selam Kebede",
         role: "Web Designer & Developer",
-        image: "/team/selam1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/selam2.jpg",
         description: "Selam is a versatile developer blending creativity with clean, efficient code...",
     },
@@ -51,7 +51,7 @@ const boardMembers: Member[] = [
         id: 5,
         name: "Nahom Meles",
         role: "Project Coordinator",
-        image: "/team/nahom1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/nahom2.jpg",
         description: "Nahom ensures smooth project execution and cross-team collaboration...",
     },
@@ -59,7 +59,7 @@ const boardMembers: Member[] = [
         id: 6,
         name: "Lidya Worku",
         role: "Graphic Designer",
-        image: "/team/lidya1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/lidya2.jpg",
         description: "Lidya is passionate about visual storytelling and brand identity design...",
     },
@@ -67,7 +67,7 @@ const boardMembers: Member[] = [
         id: 7,
         name: "Samuel Tesfaye",
         role: "Frontend Developer",
-        image: "/team/samuel1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/samuel2.jpg",
         description: "Samuel focuses on building elegant, performant, and accessible interfaces...",
     },
@@ -75,7 +75,7 @@ const boardMembers: Member[] = [
         id: 8,
         name: "Rahel Getachew",
         role: "Product Manager",
-        image: "/team/rahel1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/rahel2.jpg",
         description: "Rahel bridges design and development, ensuring user needs drive product strategy...",
     },
@@ -86,7 +86,7 @@ const youthAdvisory: Member[] = [
         id: 1,
         name: "Yonatan Girma",
         role: "Youth Program Officer",
-        image: "/team/yonatan1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/yonatan2.jpg",
         description: "Yonatan is passionate about empowering youth through leadership initiatives...",
     },
@@ -94,7 +94,7 @@ const youthAdvisory: Member[] = [
         id: 2,
         name: "Eden Mesfin",
         role: "Community Engagement Lead",
-        image: "/team/eden1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/eden2.jpg",
         description: "Eden connects young voices with meaningful community opportunities...",
     },
@@ -102,7 +102,7 @@ const youthAdvisory: Member[] = [
         id: 3,
         name: "Daniel Bekele",
         role: "Creative Director",
-        image: "/team/daniel1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/daniel2.jpg",
         description: "Daniel blends creativity and strategy to bring impactful campaigns to life...",
     },
@@ -110,7 +110,7 @@ const youthAdvisory: Member[] = [
         id: 4,
         name: "Saron Tekle",
         role: "Youth Outreach Coordinator",
-        image: "/team/saron1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/saron2.jpg",
         description: "Saron builds bridges between young leaders and organizations...",
     },
@@ -118,7 +118,7 @@ const youthAdvisory: Member[] = [
         id: 5,
         name: "Abel Mihret",
         role: "Research Analyst",
-        image: "/team/abel1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/abel2.jpg",
         description: "Abel explores data-driven insights to support youth-focused policies...",
     },
@@ -126,7 +126,7 @@ const youthAdvisory: Member[] = [
         id: 6,
         name: "Meron Tadesse",
         role: "Social Media Strategist",
-        image: "/team/meron1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/meron2.jpg",
         description: "Meron crafts online campaigns that connect youth communities globally...",
     },
@@ -134,7 +134,7 @@ const youthAdvisory: Member[] = [
         id: 7,
         name: "Dawit Alemu",
         role: "Tech Innovation Advisor",
-        image: "/team/dawit1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/dawit2.jpg",
         description: "Dawit mentors young innovators building digital tools for social impact...",
     },
@@ -142,7 +142,7 @@ const youthAdvisory: Member[] = [
         id: 8,
         name: "Hana Assefa",
         role: "Event Coordinator",
-        image: "/team/hana1.jpg",
+        image: "/assets/2025-09-24 05.50.33.jpg",
         hoverImage: "/team/hana2.jpg",
         description: "Hana orchestrates engaging youth events that inspire collaboration and creativity...",
     },
@@ -268,11 +268,11 @@ export default function TeamMembers() {
                     className="flex justify-center mb-8 sm:mb-12 md:mb-16"
                 >
                     <Tabs value={activeTab} onValueChange={setActiveTab}>
-                        <TabsList className="bg-white shadow-lg rounded-full px-1 py-1 flex h-10 sm:h-12">
+                        <TabsList className="bg-white  rounded-full px-1 py-1 flex h-10 sm:h-12">
                             <TabsTrigger
                                 value="board"
                                 className={`rounded-full px-4 sm:px-6 md:px-8 py-2 text-xs sm:text-sm font-medium transition-all duration-300 ${activeTab === "board"
-                                    ? "bg-black data-[state=active]:bg-black data-[state=active]:text-white text-gray-900 shadow-sm" : "bg-transparent text-gray-[#626161] hover:text-gray-[#626161] font-normal "
+                                    ? "bg-black data-[state=active]:bg-black data-[state=active]:text-white text-gray-900 " : "bg-transparent text-gray-[#626161] hover:text-gray-[#626161] font-normal "
                                     }`}
                             >
                                 Board Members
@@ -280,7 +280,7 @@ export default function TeamMembers() {
                             <TabsTrigger
                                 value="youth"
                                 className={`rounded-full px-4 sm:px-6 md:px-8 py-2 text-xs sm:text-sm font-medium transition-all duration-300 ${activeTab === "youth"
-                                    ? "bg-black data-[state=active]:bg-black data-[state=active]:text-white text-gray-900 shadow-sm" : "bg-transparent text-gray-[#626161] hover:text-gray-[#626161] font-normal "
+                                    ? "bg-black data-[state=active]:bg-black data-[state=active]:text-white text-gray-900 " : "bg-transparent text-gray-[#626161] hover:text-gray-[#626161] font-normal "
                                     }`}
                             >
                                 Youth Advisory
@@ -303,7 +303,7 @@ export default function TeamMembers() {
                                 <motion.div
                                     key={member.id}
                                     variants={itemVariant}
-                                    className="relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
+                                    className="relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-white   transition-all duration-300"
                                     // onMouseEnter={() => setHovered(member.id)}
                                     onMouseLeave={() => setHovered(null)}
                                 >
@@ -366,7 +366,7 @@ export default function TeamMembers() {
                                             data-id={member.id}
                                             onMouseEnter={() => setHovered(member.id)}
                                             onMouseLeave={() => setHovered(null)}
-                                            className={`relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300 ${isBlurred ? "blur-[1px] opacity-80" : ""
+                                            className={`relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-white  transition-all duration-300 ${isBlurred ? "blur-[1px] opacity-80" : ""
                                                 }`}
                                         >
                                             <div className="relative aspect-[3/4] w-full">
