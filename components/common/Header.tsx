@@ -68,14 +68,14 @@ export default function Header() {
                         >
                             <div className='flex flex-col p-4 gap-4'>
                                 {links.map((link) => (
-                                    <button
+                                    <Link
                                         key={link.href}
                                         href={link.href}
                                         className='text-[16px] py-2 rounded-lg text-left hover:bg-gray-100 transition px-3.5'
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {link.name}
-                                    </button>
+                                    </Link>
                                 ))}
                             </div>
                         </motion.div>

@@ -19,12 +19,12 @@ export default function CultureSection() {
     };
 
     return (
-        <section className="w-full bg-white py-20 md:py-28 px-6 sm:px-10 md:px-24">
+        <section className="w-full bg-white py-20 md:py-28 px-6 sm:px-10 lg:px-24">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col lg:flex-row items-stretch justify-evenly gap-12">
+                <div className="flex flex-col md:flex-row items-stretch justify-evenly gap-6">
                     <div className="flex flex-1 flex-col justify-between my-auto">
                         <motion.div
-                            className="w-[458px]"
+                            className="md:w-[458px] lg:w-[380px]"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -42,7 +42,7 @@ export default function CultureSection() {
                         </motion.div>
 
                         <motion.div
-                            className="mt-[73px] w-[458px]"
+                            className="mt-[73px] md:w-[458px] lg:w-[380px]"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -73,37 +73,37 @@ export default function CultureSection() {
                             <Image
                                 src="/assets/2025-09-24 05.52.00.jpg"
                                 alt="Team working together"
-                                width={273}
-                                height={183}
-                                className="w-[273px] h-[183px] object-cover"
+                                width={373}
+                                height={250}
+                                className="w-[373px] h-[250px] object-cover"
                             />
                         </motion.div>
 
                         <motion.div
-                            className="rounded-2xl overflow-hidden shadow-md -mt-10 ms-[254px] z-20"
+                            className="rounded-2xl overflow-hidden shadow-md mt-0 md:-mt-10 ms-[30px] lg:ms-[254px] z-20"
                             custom={1}
                             variants={imageVariants}
                         >
                             <Image
                                 src="/assets/2025-09-24 05.50.42.jpg"
                                 alt="Team celebrating"
-                                width={327}
-                                height={225}
-                                className="w-[327px] h-[225px] object-cover"
+                                width={350}
+                                height={255}
+                                className="w-[350px] h-[255px] object-cover"
                             />
                         </motion.div>
 
                         <motion.div
-                            className="rounded-2xl overflow-hidden shadow-md -mt-10 ms-[70px] z-10"
+                            className="rounded-2xl overflow-hidden shadow-md mt-0 md:-mt-10 ms-[10px] lg:ms-[70px] z-10"
                             custom={2}
                             variants={imageVariants}
                         >
                             <Image
                                 src="/assets/2025-09-24 05.51.44.jpg"
                                 alt="Outdoor team activity"
-                                width={241}
-                                height={199}
-                                className="w-[241px] h-[199px] object-cover"
+                                width={330}
+                                height={250}
+                                className="w-[330px] h-[250px] object-cover"
                             />
                         </motion.div>
                     </motion.div>

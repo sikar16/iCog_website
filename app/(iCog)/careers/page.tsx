@@ -11,7 +11,7 @@ export default function page() {
             <Hero />
             <CultureSection />
             <JoinOurTeam />
-            {/* <ScrollVideoSection /> */}
+            <ScrollVideoSection />
             <TalentRosterForm />
 
         </div>

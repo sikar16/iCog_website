@@ -83,20 +83,7 @@ function Section({ image, logo, title, description }: SectionProps) {
                     </motion.h3>
                 )}
 
-                {/* Mobile image */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                    className='relative w-full md:hidden mb-6 sm:mb-8 h-[220px] sm:h-[280px] rounded-xl overflow-hidden'
-                >
-                    <Image
-                        src={image}
-                        alt={title || 'Image'}
-                        fill
-                        className='object-cover w-full h-full rounded-xl'
-                    />
-                </motion.div>
+
 
                 <motion.p
                     initial={{ opacity: 0, y: 60 }}
@@ -107,6 +94,20 @@ function Section({ image, logo, title, description }: SectionProps) {
                 >
                     {description}
                 </motion.p>
+                {/* Mobile image */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    className='relative w-full md:hidden my-6 sm:mb-8 h-[220px] sm:h-[280px] rounded-xl overflow-hidden'
+                >
+                    <Image
+                        src={image}
+                        alt={title || 'Image'}
+                        fill
+                        className='object-cover w-full h-full rounded-xl'
+                    />
+                </motion.div>
             </div>
 
             {/* Right: Image (desktop) */}

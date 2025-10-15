@@ -11,7 +11,7 @@ export default function NumbersSoFar() {
                         <StatCard number="1.18K+" label="Kids and young adults reached" />
                     </div>
 
-                    <div className="border-r border-border pr-6">
+                    <div className="md:border-r border-border pr-6">
                         <StatCard number="430+" label="Girls engaged through our program" />
                     </div>
 

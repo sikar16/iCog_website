@@ -121,20 +121,7 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                     )}
 
                     {/* Mobile Image */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="relative w-full md:hidden mb-6 sm:mb-8 h-[220px] sm:h-[280px] rounded-xl overflow-hidden"
-                    >
-                        <Image
-                            src={image}
-                            alt={imageAlt}
-                            fill
-                            className="object-cover rounded-xl"
-                        />
-                    </motion.div>
+
 
                     {/* Description */}
                     <motion.p
@@ -146,6 +133,20 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                     >
                         {description}
                     </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className="relative w-full md:hidden my-6 sm:mb-8 h-[220px] sm:h-[280px] rounded-xl overflow-hidden"
+                    >
+                        <Image
+                            src={image}
+                            alt={imageAlt}
+                            fill
+                            className="object-cover rounded-xl"
+                        />
+                    </motion.div>
                 </div>
 
                 {/* RIGHT — IMAGE (desktop only) */}

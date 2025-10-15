@@ -68,7 +68,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 1 - Top Right */}
                         <motion.div
-                            className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px]"
+                            className="absolute top-1/2  left-[25%] -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px]"
                             style={{
                                 x: bgPhoto1X,
                                 y: bgPhoto1Y,

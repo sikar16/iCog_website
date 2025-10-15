@@ -54,7 +54,7 @@ export default function IdentifyingNeeds() {
                             className={`flex justify-center ${index === 2 ? "md:col-span-2 md:justify-center" : ""
                                 }`}
                         >
-                            <Card className="w-full max-w-[480px] md:max-w-[520px] h-[180px] bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center px-5 py-4">
+                            <Card className="w-full max-w-[480px] md:max-w-[520px] h-[180px] bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center md:px-5 py-4">
                                 <div className="flex items-center gap-5 w-full">
                                     <motion.div className="flex-shrink-0 rounded-xl overflow-hidden w-[168px] h-[147px] shadow-sm"
                                         initial={{ opacity: 0, y: 100 }}
@@ -80,7 +80,7 @@ export default function IdentifyingNeeds() {
                                         <div className="bg-gradient-to-b from-gray-900 to-gray-100 p-2 rounded-lg shadow-sm mb-3">
                                             <BusFront className="h-5 w-5 text-white" />
                                         </div>
-                                        <span className="text-base lg:text-lg font-semibold text-foreground leading-snug max-w-[260px]">
+                                        <span className="text-sm lg:text-lg font-semibold text-foreground leading-snug max-w-[260px]">
                                             {need.title}
                                         </span>
                                     </div>
