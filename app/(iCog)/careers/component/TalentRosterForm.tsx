@@ -36,7 +36,7 @@ export default function TalentRosterForm() {
     };
 
     return (
-        <section className="w-full  bg-white justify-center my-[105px] ">
+        <section className="w-full  bg-white justify-center my-[105px] px-10">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
                 {/* Left: Image & Text */}
                 <div className="relative lg:w-1/3 h-[450px] lg:h-[560px] overflow-hidden group">

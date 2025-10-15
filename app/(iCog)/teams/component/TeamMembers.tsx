@@ -304,7 +304,7 @@ export default function TeamMembers() {
                                     key={member.id}
                                     variants={itemVariant}
                                     className="relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
-                                    onMouseEnter={() => setHovered(member.id)}
+                                    // onMouseEnter={() => setHovered(member.id)}
                                     onMouseLeave={() => setHovered(null)}
                                 >
                                     <div className="relative aspect-[3/4] w-full">

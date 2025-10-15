@@ -1,55 +1,43 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function ScrollVideoSection() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-
-    // Track scroll relative to section
+    const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start center", "center end"], // starts at center of viewport
+        target: containerRef,
+        offset: ["start start", "end end"],
     });
 
-    // Scale width & height from 50% to 100% after center
-    const width = useTransform(scrollYProgress, [0, 1], ["50%", "90%"]);
-    const height = useTransform(scrollYProgress, [0, 1], ["50%", "70%"]);
+    // Scale up smoothly as you scroll (from 1 → 1.6)
+    const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.6]);
 
-    // Optional text animation
-    const opacityText = useTransform(scrollYProgress, [0.5, 1], [0, 1]);
-    const yText = useTransform(scrollYProgress, [0.5, 1], [90, 0]);
+    // Move video upward when it reaches max size
+    const y = useTransform(scrollYProgress, [0.7, 1], ["0%", "0%"]);
 
     return (
-        <section
-            ref={sectionRef}
-            className="relative w-full h-[200vh] bg-gradient-to-b from-gray-50 to-gray-200 overflow-hidden"
-        >
-            {/* Sticky video container */}
-            <motion.div className="sticky top-[20%] transform -translate-y-1/2 flex items-center justify-center h-screen">
-                <motion.div style={{ width, height }} className="relative flex items-center justify-center">
+        <section ref={containerRef} className="relative h-[800px] ">
+            {/* Sticky container to hold the video while scrolling */}
+            <div className="sticky top-0 flex items-center justify-center h-screen overflow-hidden ">
+                <motion.div
+                    style={{
+                        scale,
+                        y,
+                    }}
+                    className="w-[80vw] max-w-6xl h-[45vh] md:h-[60vh] lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl"
+                >
                     <video
                         src="/assets/video/Video.mp4"
                         autoPlay
                         muted
                         loop
                         playsInline
-                        className="w-full h-full object-cover rounded-3xl shadow-2xl"
+                        className="w-full h-full object-cover"
                     />
-
-                    {/* Animated text overlay */}
-                    <motion.div
-                        style={{ opacity: opacityText, y: yText }}
-                        className="absolute left-10 bottom-10 text-white text-left"
-                    >
-                        <h2 className="text-3xl md:text-5xl font-bold drop-shadow-[0_5px_10px_rgba(0,0,0,0.5)]">
-                            Join Our Team <br />
-                            Let’s Work Together
-                        </h2>
-
-                    </motion.div>
                 </motion.div>
-            </motion.div>
+            </div>
+
         </section>
     );
 }

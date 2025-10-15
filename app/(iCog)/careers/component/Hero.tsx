@@ -50,10 +50,10 @@ export default function Hero() {
     return (
         <div className="w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-background py-36">
             {/* Header */}
-            <div className="max-w-4xl mx-auto text-center mb-32">
-                <h1 className="text-[53px] font-bold mb-4 text-foreground">
+            <div className="max-w-4xl mx-auto text-center mb-32 px-4">
+                <h1 className="text-[40px] md:text-[53px] font-bold mb-4 text-foreground">
                     What It Means to Work at iCog </h1>
-                <p className="text-[16px] text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                <p className="text-[16px] text-muted-foreground leading-relaxed max-w-3xl mx-auto ">
                     Working at iCog means being part of a team that&apos;s curious, creative, and committed to making a real difference. Whether you join as an intern or a full-time team member, you&apos;re welcomed into an environment that values{" "}
                     <span className="font-semibold text-foreground">learning</span>,{" "}
                     <span className="font-semibold text-foreground">team-work</span> and{" "}

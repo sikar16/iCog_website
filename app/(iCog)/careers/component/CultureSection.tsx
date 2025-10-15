@@ -24,7 +24,7 @@ export default function CultureSection() {
                 <div className="flex flex-col md:flex-row items-stretch justify-evenly gap-6">
                     <div className="flex flex-1 flex-col justify-between my-auto">
                         <motion.div
-                            className="md:w-[458px] lg:w-[380px]"
+                            className="md:w-[458px] lg:w-[480px]"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -42,7 +42,7 @@ export default function CultureSection() {
                         </motion.div>
 
                         <motion.div
-                            className="mt-[73px] md:w-[458px] lg:w-[380px]"
+                            className="mt-[73px] md:w-[458px] lg:w-[480px]"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -80,7 +80,7 @@ export default function CultureSection() {
                         </motion.div>
 
                         <motion.div
-                            className="rounded-2xl overflow-hidden shadow-md mt-0 md:-mt-10 ms-[30px] lg:ms-[254px] z-20"
+                            className="rounded-2xl overflow-hidden shadow-md mt-0 md:-mt-10 ml-[30px] lg:ml-[254px] z-20"
                             custom={1}
                             variants={imageVariants}
                         >
@@ -94,7 +94,7 @@ export default function CultureSection() {
                         </motion.div>
 
                         <motion.div
-                            className="rounded-2xl overflow-hidden shadow-md mt-0 md:-mt-10 ms-[10px] lg:ms-[70px] z-10"
+                            className="rounded-2xl overflow-hidden shadow-md mt-0 md:-mt-10 ml-[10px] lg:ml-[70px] z-10"
                             custom={2}
                             variants={imageVariants}
                         >
