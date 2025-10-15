@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface Member {
     id: number;
@@ -268,7 +268,7 @@ export default function TeamMembers() {
                     className="flex justify-center mb-8 sm:mb-12 md:mb-16"
                 >
                     <Tabs value={activeTab} onValueChange={setActiveTab}>
-                        <TabsList className="bg-white  rounded-full px-1 py-1 flex h-10 sm:h-12">
+                        <TabsList className="bg-white shadow-xl  rounded-full px-1 py-1 flex h-10 sm:h-12">
                             <TabsTrigger
                                 value="board"
                                 className={`rounded-full px-4 sm:px-6 md:px-8 py-2 text-xs sm:text-sm font-medium transition-all duration-300 ${activeTab === "board"

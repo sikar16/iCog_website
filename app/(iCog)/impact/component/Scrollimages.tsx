@@ -45,10 +45,10 @@ export default function WhereWeBegun() {
     const bgPhoto5Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.57])
     const bgPhoto5Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
-    const bgPhoto6X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -350])
-    const bgPhoto6Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -120])
-    const bgPhoto6Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.63])
-    const bgPhoto6Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
+    // const bgPhoto6X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -350])
+    // const bgPhoto6Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, -120])
+    // const bgPhoto6Scale = useTransform(scrollYProgress, [0.2, 0.6, 1], [0.3, 0.5, 0.63])
+    // const bgPhoto6Opacity = useTransform(scrollYProgress, [0.2, 0.25, 1], [0, 1, 1])
 
     const bgPhoto7X = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 320])
     const bgPhoto7Y = useTransform(scrollYProgress, [0.2, 0.6, 1], [0, 0, 150])

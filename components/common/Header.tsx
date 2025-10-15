@@ -4,12 +4,10 @@ import React, { useState } from 'react'
 import {
     Menubar,
     MenubarMenu,
-    MenubarTrigger,
 } from "@/components/ui/menubar"
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
 import Link from 'next/link'
-import { Button } from '../ui/button'
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

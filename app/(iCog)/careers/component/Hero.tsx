@@ -1,9 +1,10 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 
 export default function Hero() {
     const [currentIndex, setCurrentIndex] = useState(3);
+    const [windowWidth, setWindowWidth] = useState(1200); // Default fallback
     const containerRef = useRef<HTMLDivElement>(null);
     const isScrolling = useRef(false);
 
@@ -18,15 +19,16 @@ export default function Hero() {
     ];
 
     // Wheel scroll
-    const handleWheel = (e: WheelEvent) => {
+    const handleWheel = useCallback((e: WheelEvent) => {
         if (isScrolling.current) return;
         isScrolling.current = true;
         setCurrentIndex((prev) => (e.deltaY > 0 ? (prev + 1) % images.length : (prev - 1 + images.length) % images.length));
         setTimeout(() => (isScrolling.current = false), 500);
-    };
+    }, [images.length]);
 
     // Touch swipe
-    const touchStartX = useRef();
+    const touchStartX = useRef<number>(0);
+
     const handleTouchStart = (e: React.TouchEvent) => (touchStartX.current = e.touches[0].clientX);
     const handleTouchEnd = (e: React.TouchEvent) => {
         if (isScrolling.current) return;
@@ -41,14 +43,28 @@ export default function Hero() {
     };
 
     useEffect(() => {
+        // Set initial window width
+        if (typeof window !== 'undefined') {
+            setWindowWidth(window.innerWidth);
+        }
+
         const container = containerRef.current;
         if (!container) return;
         container.addEventListener("wheel", handleWheel, { passive: false });
         return () => container.removeEventListener("wheel", handleWheel);
+    }, [handleWheel]);
+
+    // Handle window resize
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return (
-        <div className="w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-background py-36">
+        <div className="w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-background mt-[-60px]">
             {/* Header */}
             <div className="max-w-4xl mx-auto text-center mb-32 px-4">
                 <h1 className="text-[40px] md:text-[53px] font-bold mb-4 text-foreground">
@@ -87,7 +103,7 @@ export default function Hero() {
                         const maxAngle = 45; // max angle for side images
                         const angleStep = maxAngle / visibleRange;
                         const angle = displayDistance * angleStep;
-                        const radius = window.innerWidth / 2 - cardWidth / 2;
+                        const radius = windowWidth / 2 - cardWidth / 2;
                         const translateX = Math.sin((angle * Math.PI) / 120) * radius;
                         const translateY = Math.cos((angle * Math.PI) / -100) * 30; // slight vertical arc
 

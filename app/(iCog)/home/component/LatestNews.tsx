@@ -49,7 +49,7 @@ export default function LatestNews() {
         titleVisible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: "easeOut" },
+            transition: { duration: 0.8 },
         },
         cardsVisible: {
             opacity: 1,
@@ -58,7 +58,6 @@ export default function LatestNews() {
                 delayChildren: 0.2,
                 staggerChildren: 0.2,
                 duration: 0.8,
-                ease: "easeOut",
             },
         },
         card: {
@@ -66,7 +65,7 @@ export default function LatestNews() {
             visible: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 1.2, ease: "easeOut" },
+                transition: { duration: 1.2 },
             },
         },
     };

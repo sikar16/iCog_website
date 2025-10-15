@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function TalentRosterForm() {
     const [formData, setFormData] = useState({
@@ -15,20 +14,20 @@ export default function TalentRosterForm() {
         resume: null as File | null,
         newsletter: false,
     });
+    console.log(setFormData);
+    // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    //     const { name, value, type } = e.target;
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value, type } = e.target;
-
-        if (type === "checkbox") {
-            const checked = (e.target as HTMLInputElement).checked;
-            setFormData(prev => ({ ...prev, [name]: checked }));
-        } else if (type === "file") {
-            const file = (e.target as HTMLInputElement).files?.[0] || null;
-            setFormData(prev => ({ ...prev, [name]: file }));
-        } else {
-            setFormData(prev => ({ ...prev, [name]: value }));
-        }
-    };
+    //     if (type === "checkbox") {
+    //         const checked = (e.target as HTMLInputElement).checked;
+    //         setFormData(prev => ({ ...prev, [name]: checked }));
+    //     } else if (type === "file") {
+    //         const file = (e.target as HTMLInputElement).files?.[0] || null;
+    //         setFormData(prev => ({ ...prev, [name]: file }));
+    //     } else {
+    //         setFormData(prev => ({ ...prev, [name]: value }));
+    //     }
+    // };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

@@ -49,7 +49,6 @@ interface SolutionSectionProps {
 
 function SolutionSection({ index, title, description, image, imageAlt }: SolutionSectionProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const nextRef = useRef<HTMLDivElement>(null);
 
     // Track scroll of current and next section
     const { scrollYProgress } = useScroll({
