@@ -75,9 +75,9 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
         >
             <div
                 className={`flex flex-col shadow-lg ${isOdd ? "md:flex-row-reverse" : "md:flex-row"
-                    } items-center justify-between h-[500px] w-full px-10`}
+                    } items-center justify-between h-[700px] md:h-[500px] w-full px-10`}
             >
-                <div className="md:w-[600px] text-center md:text-left p-[50px]">
+                <div className="md:w-[600px] text-left py-6 md:p-[50px]">
                     <motion.h3
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
 
                 <motion.div
                     style={{ filter: grayscale }}
-                    className="relative w-full md:w-[400px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden h-[400px] "
+                    className="relative w-full md:w-[400px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden h-[300px] md:h-[400px] mb-6 md:mb-0 "
                 >
                     <Image
                         src={image || "/placeholder.svg"}

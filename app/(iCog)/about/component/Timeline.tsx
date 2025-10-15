@@ -48,10 +48,10 @@ export const Timeline = () => {
     };
 
     return (
-        <section className="px-6 py-20 md:py-32">
+        <section className="px-6 py-36 md:py-32">
             <div className="mx-auto max-w-7xl">
                 <div className="mb-8 relative w-full flex justify-center">
-                    <h2 className="text-center font-bold tracking-tight text-black md:text-[53px] relative z-10">
+                    <h2 className="text-center font-bold tracking-tight text-black text-[40px] md:text-[53px] relative z-10">
                         What We Do
                     </h2>
 

@@ -64,11 +64,11 @@ export default function Hero() {
             {/* Fullscreen Carousel */}
             <div
                 ref={containerRef}
-                className="relative w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing  gap-10 space-x-6"
+                className="relative w-full flex items-center justify-center cursor-grab active:cursor-grabbing  gap-10 space-x-6 my-16"
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
-                <div className="relative w-full h-full flex items-center justify-center " style={{ perspective: "2000px" }}>
+                <div className="relative w-full flex items-center justify-center " style={{ perspective: "2000px" }}>
                     {images.map((src, index) => {
                         const total = images.length;
                         const centerIndex = currentIndex;
@@ -80,8 +80,8 @@ export default function Hero() {
                         if (Math.abs(displayDistance) > visibleRange) return null;
 
                         // Fixed size
-                        const cardWidth = 300;
-                        const cardHeight = 400;
+                        const cardWidth = 250;
+                        const cardHeight = 300;
 
                         // Spacing across full width
                         const maxAngle = 45; // max angle for side images
