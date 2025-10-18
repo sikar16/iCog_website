@@ -82,7 +82,7 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                     <div className="relative w-[600px] h-[600px]">
                         {/* Photo 1 - Top Right */}
                         <motion.div
-                            className="absolute left-[-18%] sm:left-[20%] -translate-x-[60%] -translate-y-[30%] top-[45%] lg:left-[25%] lg:-translate-x-1/2 lg:-translate-y-1/2 w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[220px] lg:h-[220px]"
+                            className="absolute left-[-18%] sm:left-[20%] -translate-x-[60%] -translate-y-[30%] top-[45%] lg:left-[25%] lg:-translate-x-1/2 lg:-translate-y-1/2 w-[180px] h-[180px] lg:w-[220px] lg:h-[220px]"
                             style={{
                                 x: bgPhoto1X,
                                 y: bgPhoto1Y,
@@ -97,7 +97,7 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
 
                         {/* Photo 2 - Top Left */}
                         <motion.div
-                            className="absolute top-[45%] left-[100%] sm:left-[50%] lg:left-[30%] xl:left-[20%] -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[210px] lg:h-[210px]"
+                            className="absolute top-[45%] left-[100%] sm:left-[50%] lg:left-[30%] xl:left-[20%] -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] lg:w-[210px] lg:h-[210px]"
                             style={{
                                 x: bgPhoto2X,
                                 y: bgPhoto2Y,
@@ -197,7 +197,7 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
 
                         {/* Photo 8 - Bottom Middle Left */}
                         <motion.div
-                            className="absolute top-[60%] lg:top-1/2 left-[110%] sm:left-[60%]  md:left-[55%] lg:left-[35%] xl:left-[25%] -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]"
+                            className="absolute top-[60%] lg:top-1/2 left-[110%] sm:left-[60%]  md:left-[55%] lg:left-[35%] xl:left-[25%] -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]"
                             style={{
                                 x: bgPhoto8X,
                                 y: bgPhoto8Y,
@@ -213,7 +213,7 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                         {/* Main Photo - starts as center, then moves to top-left position with same size as others */}
                         {/* Main Photo - stays centered until transition */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                            className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2"
                             style={{
                                 x: centerX,
                                 y: centerY,
