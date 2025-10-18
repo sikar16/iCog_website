@@ -66,7 +66,7 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                         {active && (
                                             <motion.div
                                                 layoutId="activeLine"
-                                                className="w-[3px] h-16 bg-gradient-to-b from-white via-blue-300 to-transparent mt-2 rounded-full"
+                                                className="w-[3px] h-16 bg-gradient-to-b from-white via-gray-300 to-transparent mt-2 rounded-full"
                                                 transition={{ duration: 0.5 }}
                                             />
                                         )}
@@ -89,7 +89,7 @@ const Timeline = ({ events, className }: TimelineProps) => {
                     </div>
 
                     {/* Title & Description */}
-                    <div className="max-w-5xl mx-auto  text-center">
+                    <div className="max-w-5xl mx-auto  text-left">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeEvent.title}
@@ -101,7 +101,7 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                 <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent drop-shadow-lg">
                                     {activeEvent.title}
                                 </h3>
-                                <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+                                <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl ">
                                     {activeEvent.description}
                                 </p>
                             </motion.div>

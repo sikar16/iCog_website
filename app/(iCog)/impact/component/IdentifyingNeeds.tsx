@@ -30,7 +30,7 @@ export default function IdentifyingNeeds() {
     return (
         <section
             ref={ref}
-            className="flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 py-20"
+            className="flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100  py-30 sm:py-20"
         >
             <div className="max-w-6xl w-full mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-[39px] font-extrabold text-foreground mb-14 tracking-tight">
