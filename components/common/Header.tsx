@@ -5,7 +5,7 @@ import {
     Menubar,
     MenubarMenu,
 } from "@/components/ui/menubar"
-import { Menu, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
 import Link from 'next/link'
 

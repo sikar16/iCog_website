@@ -20,8 +20,11 @@ const needs = [
         title: "Lack of localized solutions utilizing emerging technologies",
     },
 ];
+interface IdentifyingNeedsProps {
+    shouldAnimate?: boolean;
+}
+export default function IdentifyingNeeds({ shouldAnimate }: IdentifyingNeedsProps) {
 
-export default function IdentifyingNeeds() {
     const { ref, inView } = useInView({
         triggerOnce: false,
         threshold: 0.6,

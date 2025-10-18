@@ -4,13 +4,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import type { StaticImageData } from "next/image";
 
 interface TimelineEvent {
     year: number;
     title: string;
     description: string;
-    image?: string;
+    image?: string | StaticImageData;
 }
+
 
 interface TimelineProps {
     events: TimelineEvent[];

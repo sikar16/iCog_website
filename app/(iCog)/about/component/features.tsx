@@ -37,7 +37,6 @@ export default function Features() {
                 <SolutionSection
                     key={i}
                     index={i}
-                    total={sections.length}
                     title={s.title}
                     description={s.description}
                     image={s.image}
@@ -50,14 +49,14 @@ export default function Features() {
 
 interface SolutionSectionProps {
     index: number
-    total: number
+
     title: string
     description: string
     image: string
     imageAlt: string
 }
 
-function SolutionSection({ index, total, title, description, image, imageAlt }: SolutionSectionProps) {
+function SolutionSection({ index, title, description, image, imageAlt }: SolutionSectionProps) {
     const sectionRef = useRef<HTMLDivElement>(null)
 
     const { scrollYProgress } = useScroll({

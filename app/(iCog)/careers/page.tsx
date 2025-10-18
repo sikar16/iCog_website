@@ -56,25 +56,29 @@ export default function Page() {
     const cultureY = useTransform(scrollYProgress, [0.4, 0.6, 1], [50, 0, 0]);
 
     return (
-        <div ref={containerRef} className="relative w-full h-[200vh]">
-            {/* Hero */}
-            <motion.div
-                className="sticky top-0 h-screen"
-                style={{ scale: heroScale, opacity: heroOpacity }}
-            >
-                <Hero />
-            </motion.div>
+        <div>
+            <div ref={containerRef} className="relative w-full h-[200vh]">
+                {/* Hero */}
+                <motion.div
+                    className="sticky top-0 h-screen"
+                    style={{ scale: heroScale, opacity: heroOpacity }}
+                >
+                    <Hero />
+                </motion.div>
 
-            {/* Culture Section */}
-            <motion.div
-                className="sticky top-0 h-screen"
-                style={{ scale: cultureScale, opacity: cultureOpacity, y: cultureY }}
-            >
-                <CultureSection />
-            </motion.div>
+                {/* Culture Section */}
+                <motion.div
+                    className="sticky top-0 h-screen"
+                    style={{ scale: cultureScale, opacity: cultureOpacity, y: cultureY }}
+                >
+                    <CultureSection />
+                </motion.div>
+
+            </div>
             <JoinOurTeam />
             <ScrollVideoSection />
             <TalentRosterForm />
         </div>
+
     );
 }
