@@ -1,69 +1,193 @@
 "use client";
+
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface TimelineEvent {
     year: number;
     title: string;
     description: string;
+    image?: string;
 }
 
-const events: TimelineEvent[] = [
-    {
-        year: 1981,
-        title: "IBM PC Revolution",
-        description: "The launch of the IBM PC revolutionized personal computing and helped democratize access to technology and digital skills.",
-    },
-    {
-        year: 2016,
-        title: "AI & Machine Learning Boom",
-        description: "Breakthrough in deep learning and neural networks transformed artificial intelligence capabilities across industries.",
-    },
-    {
-        year: 2018,
-        title: "Cloud Computing Dominance",
-        description: "Enterprise cloud adoption reached critical mass, fundamentally changing how businesses deploy and scale technology.",
-    },
-    {
-        year: 2020,
-        title: "Remote Work Revolution",
-        description: "Global pandemic accelerated digital transformation and remote collaboration tools became essential infrastructure.",
-    },
-];
+interface TimelineProps {
+    events: TimelineEvent[];
+    className?: string;
+}
 
-export const Timeline = () => {
-    const [activeEvent, setActiveEvent] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-
-    const handleEventClick = (index: number) => {
-        if (isAnimating || index === activeEvent) return;
-
-        setIsAnimating(true);
-        setActiveEvent(index);
-
-        // Reset animation state after transition
-        setTimeout(() => {
-            setIsAnimating(false);
-        }, 500);
-    };
+const Timeline = ({ events, className }: TimelineProps) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const activeEvent = events[activeIndex];
 
     return (
-        <section className="px-6 py-36 md:py-32">
-            <div className="mx-auto max-w-7xl">
-                <div className="mb-8 relative w-full flex justify-center">
-                    <h2 className="text-center font-bold tracking-tight text-black text-[40px] md:text-[53px] relative z-10">
-                        What We Do
-                    </h2>
+        <div className={cn("w-full", className)}>
+            <div className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-2xl">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                    {activeEvent.image && (
+                        <Image
+                            src={activeEvent.image}
+                            alt={activeEvent.title}
+                            fill
+                            className="object-cover opacity-25 scale-105"
+                        />
+                    )}
+                </div>
 
-                    <div className="absolute bottom-0 flex justify-center w-full left-[4%] ">
-                        <div className="h-1 bg-gray-200 w-[150px] relative overflow-hidden">
-                            <div className="h-1 bg-black animate-snakeSmooth absolute left-1/2 -translate-x-1/2"></div>
-                        </div>
+                {/* Content */}
+                <div className="relative z-10 px-8 py-12 md:px-16 md:py-20 text-white">
+                    {/* Timeline Bar */}
+                    <div className="relative flex items-center justify-between mb-8 w-full">
+                        {/* Full-width base line */}
+                        <div className="absolute left-0 right-0 top-1/2 h-[3px] bg-linear-330 from-gray-300 via-gray-400 to-gray-500 rounded-full -translate-y-1/2" />
+
+                        {events.map((event, index) => {
+                            const active = index === activeIndex;
+                            return (
+                                <button
+                                    key={event.year}
+                                    onClick={() => setActiveIndex(index)}
+                                    className="relative flex flex-col items-center z-10 group w-full"
+                                >
+                                    {/* Dot */}
+                                    <div className="flex flex-col items-center">
+                                        <div
+                                            className={cn(
+                                                "w-4 h-4 rounded-full border-[3px] transition-all duration-300",
+                                                active
+                                                    ? "bg-white border-white shadow-[0_0_15px_rgba(255,255,255,0.9)] scale-125"
+                                                    : "bg-gray-500/60 border-gray-400 group-hover:bg-gray-300 group-hover:scale-110"
+                                            )}
+                                        />
+
+                                        {/* Vertical Active Line */}
+                                        {active && (
+                                            <motion.div
+                                                layoutId="activeLine"
+                                                className="w-[3px] h-16 bg-gradient-to-b from-white via-blue-300 to-transparent mt-2 rounded-full"
+                                                transition={{ duration: 0.5 }}
+                                            />
+                                        )}
+                                    </div>
+
+                                    {/* Year */}
+                                    <span
+                                        className={cn(
+                                            "mt-4 text-sm md:text-base transition-colors duration-300",
+                                            active
+                                                ? "text-white font-semibold text-xl tracking-wide"
+                                                : "text-gray-300 group-hover:text-white"
+                                        )}
+                                    >
+                                        {event.year}
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    {/* Title & Description */}
+                    <div className="max-w-5xl mx-auto  text-center">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeEvent.title}
+                                initial={{ opacity: 0, y: activeIndex % 2 === 0 ? 40 : -40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: activeIndex % 2 === 0 ? -40 : 40 }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                            >
+                                <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent drop-shadow-lg">
+                                    {activeEvent.title}
+                                </h3>
+                                <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+                                    {activeEvent.description}
+                                </p>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
                 </div>
 
-
+                {/* Gradient Animation */}
                 <style jsx>{`
+          @keyframes gradient-move {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+          .animate-gradient-move {
+            background-size: 200% 200%;
+            animation: gradient-move 4s ease infinite;
+          }
+        `}</style>
+            </div>
+        </div>
+    );
+};
+
+
+/* Example Usage */
+import vintageComputer from "@/public/assets/2025-09-24 05.50.55.jpg";
+
+const timelineEvents: TimelineEvent[] = [
+    {
+        year: 1981,
+        title: "IBM PC Revolution",
+        description:
+            "The launch of the IBM PC revolutionized personal computing and helped democratize access to technology.",
+        image: vintageComputer,
+    },
+    {
+        year: 2016,
+        title: "AI Breakthrough",
+        description:
+            "Machine learning and AI began transforming how we interact with technology, making it more human-centered.",
+        image: vintageComputer,
+    },
+    {
+        year: 2018,
+        title: "Inclusive Design",
+        description:
+            "A global shift toward accessibility-first design ensured technology could serve everyone equally.",
+        image: vintageComputer,
+    },
+    {
+        year: 2020,
+        title: "Remote Revolution",
+        description:
+            "The pandemic accelerated digital transformation, redefining how people work and connect globally.",
+        image: vintageComputer,
+    },
+];
+
+const WhatWeDo = () => {
+    return (
+        <section className="min-h-screen bg-background py-24 px-6 md:px-12">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-20">
+
+                    <div className="mb-8 relative w-full flex justify-center">
+                        <h2 className="text-center font-bold tracking-tight text-black text-[40px] md:text-[53px] relative z-10">
+                            What We Do
+                        </h2>
+
+                        <div className="absolute bottom-0 flex justify-center w-full left-[4%] ">
+                            <div className="h-1 bg-gray-200 w-[150px] relative overflow-hidden">
+                                <div className="h-1 bg-black animate-snakeSmooth absolute left-1/2 -translate-x-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <style jsx>{`
                         @keyframes snakeSmooth {
                         0% {
                             width: 0%;
@@ -87,86 +211,22 @@ export const Timeline = () => {
                         }
                         `}</style>
 
-                <p className="mx-auto mb-16 max-w-4xl text-center text-[16px] leading-relaxed text-gray-500 ">
-                    We combine training, product development, and consultancy to deliver impactful tech solutions. With a focus
-                    on accessibility, innovation, and local relevance, our work bridges skill gaps, builds tools that matter,
-                    and supports organizations in creating meaningful change through technology
-                </p>
 
-                {/* Timeline Card */}
-                <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl shadow-2xl bg-gray-800/80 backdrop-blur-sm">
-                    <div className="absolute inset-0">
-                        <Image
-                            src="/file.svg"
-                            alt="Background"
-                            fill
-                            className="object-cover blur-sm"
-                            priority
-                        />
-                        <div className="absolute inset-0 bg-black/40" />
-                    </div>
 
-                    <div className="relative px-8 py-16 md:px-16 md:py-20">
-                        {/* Timeline */}
-                        <div className="relative mb-16">
-                            {/* Main Timeline Line */}
-                            <div className="absolute top-8 left-0 right-0 h-0.5 bg-gray-400"></div>
 
-                            {/* Timeline Markers and Years */}
-                            <div className="relative flex items-center justify-between">
-                                {events.map((event, index) => (
-                                    <div key={event.year} className="flex flex-col items-center">
-                                        {/* Timeline Dot */}
-                                        <div
-                                            className={`relative z-10 transition-all duration-300 ${index === activeEvent
-                                                ? 'w-4 h-4 bg-gray-300 rounded-full'
-                                                : 'w-2 h-2 bg-gray-600 rounded-full'
-                                                }`}
-                                        >
-                                            {/* Active dot connection line */}
-                                            {index === activeEvent && (
-                                                <div className="absolute top-1/2 left-1/2 w-px h-24 bg-gray-400 -translate-x-1/2 -translate-y-1/2"></div>
-                                            )}
-                                        </div>
-
-                                        {/* Year */}
-                                        <span className={`mt-3 text-sm font-medium transition-all duration-300 ${index === activeEvent ? 'text-white' : 'text-white/80'
-                                            }`}>
-                                            {event.year}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Active Event Content */}
-                        <div className="text-center">
-                            <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl lg:text-4xl">
-                                {events[activeEvent].title}
-                            </h3>
-                            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/90 md:text-base">
-                                {events[activeEvent].description}
-                            </p>
-                        </div>
-
-                        {/* Navigation Dots */}
-                        <div className="flex justify-center gap-2 mt-12">
-                            {events.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleEventClick(index)}
-                                    className={`h-1.5 rounded-full transition-all duration-300 ${index === activeEvent
-                                        ? 'bg-white w-8'
-                                        : 'bg-white/40 w-1.5 hover:bg-white/60'
-                                        }`}
-                                    disabled={isAnimating}
-                                />
-                            ))}
-                        </div>
-                    </div>
+                    <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                        We combine training, product development, and consultancy to deliver
+                        impactful tech solutions. With a focus on accessibility, innovation,
+                        and local relevance, our work bridges skill gaps and builds tools
+                        that matter.
+                    </p>
                 </div>
 
+                {/* Timeline */}
+                <Timeline events={timelineEvents} />
             </div>
         </section>
     );
 };
+
+export default WhatWeDo;

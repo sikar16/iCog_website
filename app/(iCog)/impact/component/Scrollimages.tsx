@@ -12,7 +12,6 @@ export default function WhereWeBegun() {
     })
     const centerSize = useTransform(scrollYProgress, [0, 0.5, 1], [475, 475, 250])
 
-
     const textOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1])
     const textScale = useTransform(scrollYProgress, [0.8, 0.9], [0.8, 1])
     const centerX = useTransform(scrollYProgress, [0, 0.6, 1], [0, 0, -350])
@@ -65,10 +64,9 @@ export default function WhereWeBegun() {
             <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden pt-[40px]">
                 <div className="relative w-full h-full flex items-center justify-center">
                     <div className="relative w-[600px] h-[600px]">
-
                         {/* Photo 1 - Top Right */}
                         <motion.div
-                            className="absolute top-1/2  left-[25%] -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px]"
+                            className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] lg:w-[220px] lg:h-[220px]"
                             style={{
                                 x: bgPhoto1X,
                                 y: bgPhoto1Y,
@@ -77,18 +75,13 @@ export default function WhereWeBegun() {
                             }}
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                                <Image
-                                    src="/assets/2025-09-24 05.52.06.jpg"
-                                    alt="iCog workspace"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/assets/2025-09-24 05.52.06.jpg" alt="iCog workspace" fill className="object-cover" />
                             </div>
                         </motion.div>
 
                         {/* Photo 2 - Top Left */}
                         <motion.div
-                            className="absolute top-[45%] left-[20%] -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px]"
+                            className="absolute top-[45%] left-[20%] -translate-x-1/2 -translate-y-1/2 sm:w-[140px] sm:h-[140px] md:w-[170px] md:h-[170px] lg:w-[200px] lg:h-[200px]"
                             style={{
                                 x: bgPhoto2X,
                                 y: bgPhoto2Y,
@@ -97,18 +90,13 @@ export default function WhereWeBegun() {
                             }}
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                                <Image
-                                    src="/assets/2025-09-24 05.52.16.jpg"
-                                    alt="iCog collaboration"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/assets/2025-09-24 05.52.16.jpg" alt="iCog collaboration" fill className="object-cover" />
                             </div>
                         </motion.div>
 
                         {/* Photo 3 - Bottom Right */}
                         <motion.div
-                            className="absolute top-1/2 left-[74%] -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px]"
+                            className="absolute top-1/2 left-[74%] -translate-x-1/2 -translate-y-1/2 sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] lg:w-[220px] lg:h-[220px]"
                             style={{
                                 x: bgPhoto3X,
                                 y: bgPhoto3Y,
@@ -117,18 +105,13 @@ export default function WhereWeBegun() {
                             }}
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                                <Image
-                                    src="/assets/2025-09-24 05.51.31.jpg"
-                                    alt="iCog team meeting"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/assets/2025-09-24 05.51.31.jpg" alt="iCog team meeting" fill className="object-cover" />
                             </div>
                         </motion.div>
 
                         {/* Photo 4 - Bottom Left */}
                         <motion.div
-                            className="absolute top-[55%] left-[70%] -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px]"
+                            className="absolute top-[55%] left-[70%] -translate-x-1/2 -translate-y-1/2 sm:w-[140px] sm:h-[140px] md:w-[170px] md:h-[170px] lg:w-[200px] lg:h-[200px]"
                             style={{
                                 x: bgPhoto4X,
                                 y: bgPhoto4Y,
@@ -148,7 +131,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 5 - Top Middle Right */}
                         <motion.div
-                            className="absolute top-[40%] left-[70%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-[40%] left-[70%] -translate-x-1/2 -translate-y-1/2 sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]"
                             style={{
                                 x: bgPhoto5X,
                                 y: bgPhoto5Y,
@@ -157,12 +140,7 @@ export default function WhereWeBegun() {
                             }}
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                                <Image
-                                    src="/assets/2025-09-24 05.51.37.jpg"
-                                    alt="iCog development"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/assets/2025-09-24 05.51.37.jpg" alt="iCog development" fill className="object-cover" />
                             </div>
                         </motion.div>
 
@@ -188,7 +166,7 @@ export default function WhereWeBegun() {
 
                         {/* Photo 7 - Bottom Middle Right */}
                         <motion.div
-                            className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]"
                             style={{
                                 x: bgPhoto7X,
                                 y: bgPhoto7Y,
@@ -197,18 +175,13 @@ export default function WhereWeBegun() {
                             }}
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                                <Image
-                                    src="/assets/photo_2025-06-26_15-26-03.jpg"
-                                    alt="iCog workspace"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/assets/photo_2025-06-26_15-26-03.jpg" alt="iCog workspace" fill className="object-cover" />
                             </div>
                         </motion.div>
 
                         {/* Photo 8 - Bottom Middle Left */}
                         <motion.div
-                            className="absolute top-1/2 left-[20%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]"
+                            className="absolute top-1/2 left-[20%] -translate-x-1/2 -translate-y-1/2 sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]"
                             style={{
                                 x: bgPhoto8X,
                                 y: bgPhoto8Y,
@@ -217,12 +190,7 @@ export default function WhereWeBegun() {
                             }}
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                                <Image
-                                    src="/assets/2025-09-24 05.52.11.jpg"
-                                    alt="iCog collaboration"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/assets/2025-09-24 05.52.11.jpg" alt="iCog collaboration" fill className="object-cover" />
                             </div>
                         </motion.div>
 
@@ -239,13 +207,7 @@ export default function WhereWeBegun() {
                             }}
                         >
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                                <Image
-                                    src="/assets/2025-09-24 05.50.42.jpg"
-                                    alt="iCog team"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
+                                <Image src="/assets/2025-09-24 05.50.42.jpg" alt="iCog team" fill className="object-cover" priority />
                             </div>
                         </motion.div>
                     </div>

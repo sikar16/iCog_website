@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 export default function Statistics() {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
 
     const slideFromLeft = {
         hidden: { opacity: 0, x: -100 },

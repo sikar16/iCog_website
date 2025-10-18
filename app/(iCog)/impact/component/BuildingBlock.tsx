@@ -1,11 +1,13 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 
 export default function BuildingBlock() {
+    const containerRef = useRef<HTMLDivElement>(null)
+
     return (
-        <div className='bg-black text-white px-4 sm:px-8 md:px-20 py-12 sm:py-16'>
+        <div ref={containerRef} className='bg-black text-white px-4 sm:px-8 md:px-20 py-12 sm:py-16'>
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -50,10 +52,10 @@ interface SectionProps {
 }
 
 function Section({ image, logo, title, description }: SectionProps) {
+
     return (
         <div className='flex flex-col-reverse md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-10 mb-12 sm:mb-16 h-auto md:h-[500px]'>
 
-            {/* Left: Text */}
             <div className='md:w-[500px] w-full text-center md:text-left'>
                 {logo && (
                     <motion.div

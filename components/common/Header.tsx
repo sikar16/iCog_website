@@ -51,7 +51,10 @@ export default function Header() {
 
                 <div className='md:hidden'>
                     <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                        {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                        {mobileMenuOpen ? <X size={28} /> :
+                            <Image src="/menu.svg" alt="Menu" width={35} height={35} />
+                            // <Menu size={28} />
+                        }
                     </button>
                 </div>
 
