@@ -12,15 +12,15 @@ export default function HomeHero() {
 
     return (
         <div
-            className="w-full h-[80vh] md:h-screen flex  justify-center  px-6 sm:px-10 md:px-[100px] mx-auto "
+            className="w-full h-[80vh] flex  justify-center  px-6 sm:px-10 md:px-[100px] mx-auto "
             style={{ backgroundImage: "url('./assets/hero.svg')" }}
         >
             <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 50 }}
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.6 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="flex flex-col items-center py-[200px] md:py-[250px]"
+                className="flex flex-col items-center py-[150px] md:py-[200px]"
             >
                 {/* Title */}
                 <h1 className="sm:text-center font-bold leading-tight text-[clamp(28px,6vw,58px)] max-w-[980px]">

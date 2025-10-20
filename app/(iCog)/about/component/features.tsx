@@ -110,8 +110,8 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
                     filter: grayscale,
                     y,
                 }}
-                className={`flex flex-col gap-11 ${isOdd ? "md:flex-row-reverse" : "md:flex-row"} 
-                items-center justify-between w-[100%] max-w-6xl p-10 bg-white rounded-3xl shadow-sm relative overflow-hidden border border-gray-100`}
+                className={`flex flex-col gap-11  ${isOdd ? "md:flex-row-reverse" : "md:flex-row"} 
+                items-center justify-between w-[100%] max-w-7xl p-10 bg-white rounded-3xl shadow-sm relative overflow-hidden border border-gray-100`}
             >
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-transparent pointer-events-none" />
