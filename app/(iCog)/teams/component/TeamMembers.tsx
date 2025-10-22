@@ -752,7 +752,7 @@ export default function TeamMembers() {
                                         >
                                             <div className="relative aspect-[3/4] w-full">
                                                 <Image
-                                                    src={isHovered ? member.hoverImage : member.image}
+                                                    src={isHovered && member.hoverImage ? member.hoverImage : member.image}
                                                     alt={member.name}
                                                     fill
 
