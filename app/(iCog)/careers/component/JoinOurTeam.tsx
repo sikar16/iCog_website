@@ -34,7 +34,6 @@ export default function JoinOurTeam() {
         },
     ];
 
-    // Animation variants
     const textVariant = {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -59,7 +58,6 @@ export default function JoinOurTeam() {
                     Join Our Team <br className="hidden sm:block" /> Let’s Work Together
                 </motion.h1>
 
-                {/* Jobs Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-x-12 md:gap-y-10">
                     {jobs.map((job, index) => (
                         <motion.div

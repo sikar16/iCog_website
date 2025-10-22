@@ -210,8 +210,6 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                             </div>
                         </motion.div>
 
-                        {/* Main Photo - starts as center, then moves to top-left position with same size as others */}
-                        {/* Main Photo - stays centered until transition */}
                         <motion.div
                             className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2"
                             style={{
@@ -229,7 +227,6 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                         </motion.div>
                     </div>
 
-                    {/* Text Content - appears only after all images are in final positions */}
                     <motion.div
                         className="absolute inset-0 flex items-center justify-center pointer-events-none z-20"
                         style={{
@@ -249,10 +246,7 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                 </div>
             </div>
 
-            {/* ✅ Unique Mobile Layout (asymmetric & modern storytelling look) */}
             <div className="flex sm:hidden flex-col items-center justify-center text-center px-4 py-20 space-y-8">
-
-                {/* 🔹 Top feature images */}
                 <div className="grid grid-cols-2 gap-3 w-full max-w-[420px]">
                     <div className="relative col-span-1 aspect-square rounded-3xl overflow-hidden shadow-lg hover:scale-[1.05] transition-transform duration-300">
                         <Image src="/assets/2025-09-24 05.50.42.jpg" alt="iCog moment 1" fill className="object-cover" />
@@ -261,8 +255,6 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                         <Image src="/assets/2025-09-24 05.52.06.jpg" alt="iCog moment 2" fill className="object-cover" />
                     </div>
                 </div>
-
-                {/* 🔸 Text Centered */}
                 <div className="max-w-[360px] text-center px-2 mt-4">
                     <h2 className="text-3xl font-bold text-foreground mb-3 tracking-tight">
                         Where we begun
@@ -274,7 +266,6 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                     </p>
                 </div>
 
-                {/* 🔹 Middle mosaic (4 smaller images) */}
                 <div className="grid grid-cols-2 gap-3 w-full max-w-[420px]">
                     {[
                         "/assets/2025-09-24 05.52.11.jpg",
@@ -290,8 +281,6 @@ export default function WhereWeBegun({ onScrollComplete }: WhereWeBegunProps) {
                         </div>
                     ))}
                 </div>
-
-                {/* 🔹 Bottom wide visuals */}
                 <div className="space-y-3 w-full max-w-[420px]">
                     <div className="relative w-full aspect-[5/3] rounded-3xl overflow-hidden shadow-lg hover:scale-[1.03] transition-transform duration-300">
                         <Image src="/assets/2025-09-24 05.51.37.jpg" alt="iCog moment 3" fill className="object-cover" />

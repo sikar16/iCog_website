@@ -64,33 +64,23 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
         offset: ["start end", "end start"],
     })
 
-    // Smooth spring physics
     const smoothProgress = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.001
     })
 
-    // Fixed z-index based on index (higher index = higher z-index)
     const zIndex = 10 + index
 
-    // Grayscale logic - card becomes color when it's the most visible one
     const grayscale = useTransform(smoothProgress, (progress) => {
-        // Wider range for smooth B&W in both scroll directions
         const centerStart = 0.4
         const centerEnd = 0.6
         if (progress >= centerStart && progress <= centerEnd) return "grayscale(0%)"
         return "grayscale(100%)"
     })
 
-
-    // Scale effect
     const scale = useTransform(smoothProgress, [0.9, 1, 0.9], [0.9, 1, 0.9])
-
-    // Vertical movement
     const y = useTransform(smoothProgress, [0, 0.5, 1], [30, 0, 50])
-
-    // Opacity
     const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
     const isOdd = index % 2 !== 0
@@ -100,7 +90,7 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
             ref={sectionRef}
             style={{
                 opacity,
-                zIndex // Fixed z-index based on position in array
+                zIndex
             }}
             className="sticky top-0 flex items-center justify-center min-h-[60vh] "
         >
@@ -113,10 +103,8 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
                 className={`flex flex-col gap-11  ${isOdd ? "md:flex-row-reverse" : "md:flex-row"} 
                 items-center justify-between w-[100%] max-w-7xl p-10 bg-white rounded-3xl shadow-sm relative overflow-hidden border border-gray-100`}
             >
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-transparent pointer-events-none" />
 
-                {/* Text Section */}
                 <div className="flex-1 text-left space-y-6 relative z-10">
                     <motion.h3
                         initial={{ opacity: 0, y: 40 }}
@@ -147,7 +135,7 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
                     </motion.div>
                 </div>
 
-                {/* Image Section */}
+
                 {/* <motion.div
                     className="relative flex-1 w-full h-[350px] md:h-[450px] rounded-2xl overflow-hidden "
                 >
@@ -161,7 +149,6 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
                     <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent" />
                 </motion.div> */}
 
-                {/* Image Section */}
                 <motion.div
                     className="relative block md:flex-1  w-full rounded-2xl overflow-hidden mb-6 sm:mb-0
                h-[250px] sm:h-[350px] md:h-[450px] flex-shrink-0"

@@ -15,19 +15,7 @@ export default function TalentRosterForm() {
         newsletter: false,
     });
     console.log(setFormData);
-    // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    //     const { name, value, type } = e.target;
 
-    //     if (type === "checkbox") {
-    //         const checked = (e.target as HTMLInputElement).checked;
-    //         setFormData(prev => ({ ...prev, [name]: checked }));
-    //     } else if (type === "file") {
-    //         const file = (e.target as HTMLInputElement).files?.[0] || null;
-    //         setFormData(prev => ({ ...prev, [name]: file }));
-    //     } else {
-    //         setFormData(prev => ({ ...prev, [name]: value }));
-    //     }
-    // };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -37,7 +25,6 @@ export default function TalentRosterForm() {
     return (
         <section className="w-full  bg-white justify-center my-[105px] px-10">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
-                {/* Left: Image & Text */}
                 <div className="relative lg:w-1/3 h-[450px] lg:h-[560px] overflow-hidden group">
                     <div
                         className="absolute inset-0 transition-all duration-1000"
@@ -59,7 +46,6 @@ export default function TalentRosterForm() {
                     </div>
                 </div>
 
-                {/* Right: Form */}
                 <div className="lg:w-3/4 px-10 py-[20px] bg-[#F8F8F8]">
                     <form onSubmit={handleSubmit} className="space-y-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

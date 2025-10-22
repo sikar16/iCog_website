@@ -81,6 +81,8 @@ const boardMembers: Member[] = [
     },
 ];
 
+
+
 const youthAdvisory: Member[] = [
     {
         id: 1,
@@ -148,11 +150,10 @@ const youthAdvisory: Member[] = [
     },
 ];
 
-// Helper function to split members into rows based on screen size
 const splitIntoRows = (members: Member[], screenSize: string) => {
-    let columns = 4; // default for large screens
+    let columns = 4;
 
-    if (screenSize === 'mobile') columns = 2; // Changed from 1 to 2
+    if (screenSize === 'mobile') columns = 2;
     else if (screenSize === 'tablet') columns = 2;
     else if (screenSize === 'small-desktop') columns = 3;
 
@@ -171,11 +172,10 @@ export default function TeamMembers() {
     const tabRef = useRef<HTMLDivElement>(null);
     const tabInView = useInView(tabRef, { once: false, amount: 0.4 });
 
-    // Detect screen size
-    useEffect(() => {
+=    useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
-            if (width < 768) { // Changed from 640 to 768 for mobile
+            if (width < 768) {
                 setScreenSize('mobile');
             } else if (width < 1024) {
                 setScreenSize('small-desktop');
@@ -195,10 +195,9 @@ export default function TeamMembers() {
     const [hoverPosition, setHoverPosition] = useState<{ top: number; left: number; width: number } | null>(null);
     const hoveredIndex = members.findIndex((m) => m.id === hovered);
 
-    // Calculate columns based on screen size for description positioning
     const getColumns = () => {
         switch (screenSize) {
-            case 'mobile': return 2; // Changed from 1 to 2
+            case 'mobile': return 2;
             case 'small-desktop': return 3;
             default: return 4;
         }
@@ -303,16 +302,15 @@ export default function TeamMembers() {
                                 <motion.div
                                     key={member.id}
                                     variants={itemVariant}
-                                    className="relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-white   transition-all duration-300"
-                                    // onMouseEnter={() => setHovered(member.id)}
+                                    className="relative cursor-pointer rounded-xl  overflow-hidden bg-white   transition-all duration-300"
                                     onMouseLeave={() => setHovered(null)}
                                 >
-                                    <div className="relative aspect-[3/4] w-full">
+                                    <div className="relative aspect-[3/4] w-full ">
                                         <Image
-                                            src={hovered === member.id ? member.hoverImage : member.image}
+                                            src={member.image}
                                             alt={member.name}
                                             fill
-                                            className="object-cover transition-all duration-500"
+                                            className="object-cover transition-all duration-500 border-1 border-black/10 rounded-xl "
                                             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                         />
                                     </div>
@@ -354,6 +352,7 @@ export default function TeamMembers() {
                                                 exit={{ opacity: 0, y: 20 }}
                                                 transition={{ duration: 0.3 }}
                                                 className="bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-left"
+
                                             >
                                                 <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{hoveredMember.description}</p>
                                             </motion.div>
@@ -374,7 +373,9 @@ export default function TeamMembers() {
                                                     src={isHovered ? member.hoverImage : member.image}
                                                     alt={member.name}
                                                     fill
-                                                    className="object-cover transition-all duration-500"
+
+                                                    className="object-cover transition-all duration-500 border-1 border-black/10 rounded-xl "
+
                                                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                                 />
                                             </div>

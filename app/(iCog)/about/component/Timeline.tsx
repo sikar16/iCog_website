@@ -28,15 +28,13 @@ const Timeline = ({ events, className }: TimelineProps) => {
         setActiveIndex(index);
     };
 
-    // Determine animation direction based on whether we're moving forward or backward
     const getAnimationDirection = () => {
         return activeIndex > prevIndex ? "fromBottom" : "fromTop";
     };
 
     return (
         <div className={cn("w-full", className)}>
-            <div className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-2xl">
-                {/* Background Image */}
+            <div className="relative w-full overflow-hidden rounded-[0px_40px_0px_40px] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-2xl">
                 <div className="h-[640px] relative">
                     <div className="absolute inset-0">
                         {activeEvent.image && (
@@ -50,12 +48,8 @@ const Timeline = ({ events, className }: TimelineProps) => {
                         )}
                     </div>
                 </div>
-
-                {/* Content */}
                 <div className="absolute inset-0 z-10 px-8 py-12 md:px-16 md:py-20 text-white">
-                    {/* Timeline Bar */}
                     <div className="relative flex items-center justify-between mb-8 w-full">
-                        {/* Full-width base line */}
                         <div className="absolute left-0 right-0 top-1/2 h-[3px] bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 rounded-full -translate-y-1/2" />
 
                         {events.map((event, index) => {
@@ -66,7 +60,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                     onClick={() => handleYearClick(index)}
                                     className="relative flex flex-col items-center z-10 group w-full"
                                 >
-                                    {/* Dot */}
                                     <div className="flex flex-col items-center">
                                         <div
                                             className={cn(
@@ -76,8 +69,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                                     : "bg-gray-500/60 border-gray-400 group-hover:bg-gray-300 group-hover:scale-110"
                                             )}
                                         />
-
-                                        {/* Vertical Active Line */}
                                         {active && (
                                             <motion.div
                                                 layoutId="activeLine"
@@ -87,7 +78,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                         )}
                                     </div>
 
-                                    {/* Year */}
                                     <span
                                         className={cn(
                                             "mt-4 text-sm md:text-base transition-colors duration-300",
@@ -103,7 +93,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                         })}
                     </div>
 
-                    {/* Title & Description */}
                     <div className="max-w-3xl mx-auto text-left mt-16">
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -137,7 +126,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
     );
 };
 
-/* Example Usage */
 import vintageComputer from "@/public/assets/2025-09-24 05.50.55.jpg";
 import image1 from "@/public/assets/463511bae3e22dee6d837c327538b673293853e4.jpg"
 import image2 from "@/public/assets/photo_2025-06-26_15-26-03.jpg"
@@ -178,7 +166,6 @@ const WhatWeDo = () => {
     return (
         <section className="min-h-screen bg-background py-24 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="text-center mb-20">
                     <div className="mb-8 relative w-full flex justify-center">
                         <h2 className="text-center font-bold tracking-tight text-black text-[40px] md:text-[53px] relative z-10">
@@ -224,7 +211,6 @@ const WhatWeDo = () => {
                     </p>
                 </div>
 
-                {/* Timeline */}
                 <Timeline events={timelineEvents} />
             </div>
         </section>

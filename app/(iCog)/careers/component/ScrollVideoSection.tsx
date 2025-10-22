@@ -9,16 +9,11 @@ export default function ScrollVideoSection() {
         target: containerRef,
         offset: ["start start", "end end"],
     });
-
-    // Scale up smoothly as you scroll (from 1 → 1.6)
     const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.6]);
-
-    // Move video upward when it reaches max size
     const y = useTransform(scrollYProgress, [0.7, 1], ["0%", "0%"]);
 
     return (
         <section ref={containerRef} className="relative h-[800px] ">
-            {/* Sticky container to hold the video while scrolling */}
             <div className="sticky top-0 flex items-center justify-center h-screen overflow-hidden ">
                 <motion.div
                     style={{
