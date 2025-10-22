@@ -73,7 +73,7 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
     const zIndex = 10 + index
 
     const grayscale = useTransform(smoothProgress, (progress) => {
-        const centerStart = 0.4
+        const centerStart = 0.1
         const centerEnd = 0.6
         if (progress >= centerStart && progress <= centerEnd) return "grayscale(0%)"
         return "grayscale(100%)"
@@ -88,6 +88,7 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
     return (
         <motion.div
             ref={sectionRef}
+            id={title.toLowerCase()}
             style={{
                 opacity,
                 zIndex

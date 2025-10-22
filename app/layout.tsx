@@ -34,8 +34,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "iCog Website",
-  description: "iCog Website",
+  title: "iCog ACC",
+  description: "iCog ACC is dedicated to democratizing access to technology through training, product development, and consultancy.",
 };
 
 export default function RootLayout({

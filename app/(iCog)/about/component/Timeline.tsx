@@ -204,10 +204,10 @@ const WhatWeDo = () => {
                     `}</style>
 
                     <p className="text-lg md-text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        We combine training, product development, and consultancy to deliver
-                        impactful tech solutions. With a focus on accessibility, innovation,
-                        and local relevance, our work bridges skill gaps and builds tools
-                        that matter.
+                        We combine training, product development, and consultancy to deliver impactful tech solutions.
+                        With a focus on accessibility, innovation, and local relevance, our work bridges skill gaps,
+                        builds tools that matter, and supports organizations in creating meaningful change through technology.
+                        .
                     </p>
                 </div>
 

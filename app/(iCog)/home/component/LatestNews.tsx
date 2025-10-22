@@ -7,19 +7,19 @@ export default function LatestNews() {
     const blogPosts = [
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/lates.svg",
+            imageSrc: "/assets/About Page/lates.svg",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/lates3.png",
+            imageSrc: "/assets/About Page/lates3.png",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/lates2.svg",
+            imageSrc: "/assets/About Page/lates2.svg",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
@@ -80,7 +80,7 @@ export default function LatestNews() {
                 className="text-center"
             >
                 <p className="text-[30px] md:text-[38px] font-semibold">
-                    Latest news & articles
+                    Latest news & article
                 </p>
             </motion.div>
 

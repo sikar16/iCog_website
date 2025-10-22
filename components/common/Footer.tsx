@@ -4,6 +4,14 @@ import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
+    const links = [
+        { name: "Home", href: "/home" },
+        { name: "About", href: "/about" },
+        { name: "Impact", href: "/impact" },
+        { name: "Careers", href: "/careers" },
+        { name: "Teams", href: "/teams" },
+
+    ]
     return (
         <footer className="bg-black text-white pt-14 px-4 sm:px-8 lg:px-14 w-full">
             <div className="flex flex-col md:flex-row md:justify-between gap-10 sm:gap[100px] lg:gap-[200px]">
@@ -23,8 +31,7 @@ export default function Footer() {
                     <div className="space-y-4">
                         <p className="text-sm">
                             <span className="font-bold">Mission - </span>
-                            To democratize access to technology and technology education through training, consultancy, and products enabling young people to harness their potential and shape the future.
-                        </p>
+                            To democratize access to technology and technology education through training, consultancy, and products enabling young people to harness their potential and shape the future.                        </p>
                         <p className="text-sm">
                             <span className="font-bold">Vision - </span>
                             A world where technology is a force for good, accessible to all, and driven by the next generation of creators.
@@ -40,26 +47,53 @@ export default function Footer() {
                                     placeholder="Enter your email"
                                     className="flex-1 w-[150px] bg-[#2E2E2E] border-none"
                                 />
-                                <Button className="bg-white text-black hover:bg-white rounded-[0px_8px_0px_8px] w-full w-auto">
+                                <Button className="bg-white text-black hover:bg-white rounded-[0px_8px_0px_8px] w-full w-auto cursor-pointer">
                                     Send Email
                                 </Button>
                             </div>
 
                             <div className="mt-[23px] flex gap-3">
                                 {[
-                                    { src: "/socialmedia/linkin.svg", alt: "linkedin" },
-                                    { src: "/socialmedia/instagram.svg", alt: "instagram" },
-                                    { src: "/socialmedia/twitter.png", alt: "twitter" },
-                                    { src: "/socialmedia/facebook.svg", alt: "facebook" },
-                                    { src: "/socialmedia/tik-tok.png", alt: "tiktok" },
-                                    { src: "/socialmedia/youtube.svg", alt: "youtube" },
+                                    {
+                                        src: "/socialmedia/linkin.svg",
+                                        alt: "linkedin",
+                                        href: "https://www.linkedin.com/company/icoga/",
+                                    },
+                                    {
+                                        src: "/socialmedia/instagram.svg",
+                                        alt: "instagram",
+                                        href: "https://www.instagram.com/icog__?igsh=bW1kY3RiMDdrMDVm",
+                                    },
+                                    {
+                                        src: "/socialmedia/twitter.png",
+                                        alt: "twitter",
+                                        href: "https://x.com/icog__?s=21",
+                                    },
+                                    {
+                                        src: "/socialmedia/facebook.svg",
+                                        alt: "facebook",
+                                        href: "https://www.facebook.com/share/1FDBu9aMYN/?mibextid=wwXIfr",
+                                    },
+                                    {
+                                        src: "/socialmedia/tik-tok.png",
+                                        alt: "tiktok",
+                                        href: "https://www.tiktok.com/@icog___?_t=ZM-90jc89WDS0a&_r=1",
+                                    },
+                                    {
+                                        src: "/socialmedia/youtube.svg",
+                                        alt: "youtube",
+                                        href: "https://youtube.com/@icog-0?si=l4l07h9NWBFnzAm",
+                                    },
                                 ].map((icon, i) => (
-                                    <div
+                                    <a
                                         key={i}
+                                        href={icon.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-[28px] h-[28px] flex items-center justify-center rounded bg-[#2E2E2E] hover:bg-[#444] cursor-pointer transition"
                                     >
                                         <Image src={icon.src} alt={icon.alt} width={16} height={16} />
-                                    </div>
+                                    </a>
                                 ))}
                             </div>
 
@@ -73,13 +107,13 @@ export default function Footer() {
                     <div className="flex-1">
                         <h3 className="font-semibold mb-4 text-base sm:text-lg">Quick Links</h3>
                         <nav className="flex flex-col gap-2 text-sm sm:text-base">
-                            {["Home", "About", "Career", "Impact", "Our Team", "Blog"].map((link) => (
+                            {links.map((link) => (
                                 <a
-                                    key={link}
-                                    href="#"
+                                    key={link.href}
+                                    href={link.href}
                                     className="text-white hover:text-gray-400 transition-colors"
                                 >
-                                    {link}
+                                    {link.name}
                                 </a>
                             ))}
                         </nav>
@@ -108,9 +142,15 @@ export default function Footer() {
                                 <span>Info@icog.et</span>
                             </div>
                         </div>
-                        <Button className="mt-4 bg-white text-black hover:bg-white rounded-[0px_8px_0px_8px] w-full sm:w-auto">
-                            Contact Us
-                        </Button>
+                        <a
+                            href="mailto:info@icog.et"
+                            className="mt-4 inline-block w-full sm:w-auto"
+                        >
+                            <Button className="bg-white text-black hover:bg-gray-100 rounded-[0px_8px_0px_8px] w-full sm:w-auto cursor-pointer">
+                                Contact Us
+                            </Button>
+                        </a>
+
                     </div>
                 </div>
             </div>

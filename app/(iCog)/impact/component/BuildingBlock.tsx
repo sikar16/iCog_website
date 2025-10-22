@@ -14,31 +14,40 @@ export default function BuildingBlock() {
                 transition={{ duration: 0.8 }}
                 className='text-center text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12'
             >
-                Building Block
+                Building blocks
+
+                <p className='hidden lg:block lg:text-lg font-normal mt-6 w-full max-w-4xl text-center justify-center items-center mx-auto'>
+                    Our current initiatives build upon a foundation of impactful past projects. These projects, while no longer active,
+                    provided invaluable lessons, sparked innovation, and laid the groundwork for what we do today.
+                </p>
             </motion.div>
 
             {/* Section 1 */}
             <Section
-                image="/digitruck.png"
-                logo="/assets/solveit-logo12.png"
+                image="/assets/Impact Page/about.jpg"
+                logo="/assets/Impact Page/solveit-logo12.png"
                 title=""
-                description="A national innovation competition empowering youth (18–28) to turn local challenges into tech-based solutions, supporting grassroots innovation and early-stage startups across 15 Ethiopian cities."
+                description="A national innovation competition empowering youth (18–28) to turn local challenges into tech-based solutions,
+                             supporting grassroots innovation and early-stage startups across 15 Ethiopian cities."
             />
 
             {/* Section 2 */}
             <Section
-                image="/assets/unnamed.jpg"
-                logo="/logodg2-cropped.webp"
+                image="/assets/Impact Page/unnamed.jpg"
+                logo="/assets/Impact Page/Logo.png"
                 title=""
                 description="An online platform that kickstarts K–12 students’ coding journeys with culturally engaging content—focused on the African diaspora while creating job opportunities for youth in Africa."
             />
 
             {/* Section 3 */}
             <Section
-                image="/digitruck.png"
+                image="/assets/Impact Page/photo_2025-10-07_09-56-14.jpg"
                 logo=""
                 title="Summer Camp"
-                description="An engaging summer program that introduces students to coding and digital skills through hands-on learning and creative activities like pottery, chess, drone training, and college prep. The camp encourages exploration, critical thinking, and fun in a supportive environment."
+                description="An engaging summer program that introduces students to coding and digital skills through hands-on learning and 
+                creative activities like pottery, chess, drone training, and college prep. The camp encourages exploration, critical thinking, 
+                and fun in a supportive environment.
+"
             />
         </div>
     )
@@ -67,7 +76,7 @@ function Section({ image, logo, title, description }: SectionProps) {
                         <Image
                             src={logo}
                             alt='Logo'
-                            height={140}
+                            height={200}
                             width={140}
                             className='rounded-xl shadow-lg mx-auto md:mx-0'
                         />
@@ -101,15 +110,18 @@ function Section({ image, logo, title, description }: SectionProps) {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                    className='relative w-full md:hidden my-6 sm:mb-8 h-[220px] sm:h-[280px] rounded-xl overflow-hidden'
+                    className="relative w-full md:hidden my-6 sm:mb-8 h-[420px] rounded-xl overflow-hidden "
                 >
                     <Image
                         src={image}
-                        alt={title || 'Image'}
+                        alt={title || "Image"}
                         fill
-                        className='object-cover w-full h-full rounded-xl'
+                        className="object-contain w-full h-full rounded-xl"
                     />
+                    <div className="absolute inset-0 bg-black/10"></div>
                 </motion.div>
+
+
             </div>
 
             {/* Right: Image (desktop) */}
@@ -118,7 +130,7 @@ function Section({ image, logo, title, description }: SectionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className='hidden md:block relative w-full md:w-[480px] lg:w-[520px] h-[320px] sm:h-[380px] md:h-[420px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg'
+                className='hidden md:block relative w-full md:w-[480px] lg:w-[520px] h-[380px] md:h-[420px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg'
             >
                 <Image
                     src={image}

@@ -8,18 +8,18 @@ export default function NumbersSoFar() {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-[36px]">
                     <div className="border-r border-border pr-6">
-                        <StatCard number="1.18K+" label="Kids and young adults reached" />
+                        <StatCard number="9+" label="Years of experience" />
                     </div>
 
                     <div className="md:border-r border-border pr-6">
-                        <StatCard number="430+" label="Girls engaged through our program" />
+                        <StatCard number="24+" label="Cities reached" />
                     </div>
 
                     <div className="border-r border-border pr-6">
-                        <StatCard number="41" label="Partner organizations collaborated with" />
+                        <StatCard number="40+" label="Partners across the world" />
                     </div>
 
-                    <StatCard number="30" label="Projects successfully completed" />
+                    <StatCard number="118K" label="Impacted kids and young adults" />
                 </div>
             </div>
         </section>

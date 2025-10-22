@@ -8,16 +8,16 @@ import { BusFront } from "lucide-react";
 
 const needs = [
     {
-        image: "/assets/2025-09-24 05.52.21.jpg",
+        image: "/assets/Impact Page/photo_2025-09-24_11-56-42.jpg",
         title: "Limited access to technology education",
     },
     {
-        image: "/assets/2025-09-24 05.50.42.jpg",
-        title: "Lack of focus on kids and young people in tech education",
+        image: "/assets/Impact Page/photo_2025-10-07_09-52-41.jpg",
+        title: "Lack of localized solutions utilizing emerging technologies",
     },
     {
-        image: "/assets/photo_2025-06-17_16-17-25.jpg",
-        title: "Lack of localized solutions utilizing emerging technologies",
+        image: "/assets/Impact Page/photo_2025-06-17_16-17-25.jpg",
+        title: "Lack of Focus on Kids and Young People in Tech Education",
     },
 ];
 interface IdentifyingNeedsProps {
@@ -59,7 +59,7 @@ export default function IdentifyingNeeds({ shouldAnimate }: IdentifyingNeedsProp
                         >
                             <Card className="w-full max-w-[480px] md:max-w-[520px] h-[180px] bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center md:px-5 py-4">
                                 <div className="flex items-center gap-5 w-full">
-                                    <motion.div className="flex-shrink-0 rounded-xl overflow-hidden w-[168px] h-[147px] shadow-sm"
+                                    {/* <motion.div className="flex-shrink-0 rounded-xl overflow-hidden w-[168px] h-[147px] shadow-sm"
                                         initial={{ opacity: 0, y: 100 }}
                                         animate={
                                             inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
@@ -75,12 +75,28 @@ export default function IdentifyingNeeds({ shouldAnimate }: IdentifyingNeedsProp
                                             alt={need.title}
                                             width={168}
                                             height={147}
-                                            className="object-cover w-full h-full rounded-xl"
+                                            className="w-full h-[147px] object-cover rounded-xl justify-center items-center"
+                                        />
+
+                                    </motion.div> */}
+
+                                    <motion.div
+                                        className="flex-shrink-0 rounded-xl overflow-hidden w-[168px] h-[147px] shadow-sm flex items-center justify-center"
+                                        initial={{ opacity: 0, y: 100 }}
+                                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                                        transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+                                    >
+                                        <Image
+                                            src={need.image}
+                                            alt={need.title}
+                                            width={168}
+                                            height={147}
+                                            className="w-full h-full object-cover rounded-xl"
                                         />
                                     </motion.div>
 
                                     <div className="flex flex-col items-start justify-center text-left">
-                                        <div className="bg-gradient-to-b from-gray-900 to-gray-100 p-2 rounded-lg shadow-sm mb-3">
+                                        <div className="bg-gradient-to-b from-gray-900 to-gray-300 p-2 rounded-[0px_8px_0px_8px] shadow-sm mb-3">
                                             <BusFront className="h-5 w-5 text-white" />
                                         </div>
                                         <span className="text-sm lg:text-lg font-semibold text-foreground leading-snug max-w-[260px]">
