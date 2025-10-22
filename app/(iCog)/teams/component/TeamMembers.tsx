@@ -172,7 +172,7 @@ export default function TeamMembers() {
     const tabRef = useRef<HTMLDivElement>(null);
     const tabInView = useInView(tabRef, { once: false, amount: 0.4 });
 
-=    useEffect(() => {
+    useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
             if (width < 768) {
