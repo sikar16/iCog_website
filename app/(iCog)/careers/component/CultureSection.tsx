@@ -35,9 +35,9 @@ export default function CultureSection() {
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
                                 We take pride in supporting young talent — giving interns not just tasks,
-                                but opportunities to grow, experiment, and contribute meaningfully.
-                                Our team culture is built on empathy and shared purpose, and that energy
-                                shows in the way we work, celebrate, and grow together.
+                                but opportunities to grow, experiment, and contribute meaningfully. Our team
+                                culture is built on empathy and shared purpose, and that energy shows in the way we work,
+                                celebrate, and grow together.
                             </p>
                         </motion.div>
 
@@ -52,9 +52,9 @@ export default function CultureSection() {
                                 Culture That Connects
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                From bi-monthly team engagement days and birthday moments to our annual retreats,
-                                we believe in connection just as much as innovation. Our values — including youth focus,
-                                local engagement, and measurable impact — shape everything we do.
+                                From bi-monthly team engagement days and birthday moments to our annual
+                                retreats, we believe in connection just as much as innovation. Our values —
+                                including youth focus, local engagement, and measurable impact — shape everything we do.
                             </p>
                         </motion.div>
                     </div>

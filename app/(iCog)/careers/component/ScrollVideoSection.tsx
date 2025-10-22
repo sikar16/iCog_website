@@ -13,7 +13,7 @@ export default function ScrollVideoSection() {
     const y = useTransform(scrollYProgress, [0.7, 1], ["0%", "0%"]);
 
     return (
-        <section ref={containerRef} className="relative h-[800px] ">
+        <section ref={containerRef} className="relative h-[800px]">
             <div className="sticky top-0 flex items-center justify-center h-screen overflow-hidden ">
                 <motion.div
                     style={{

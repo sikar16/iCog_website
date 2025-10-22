@@ -135,7 +135,7 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                         viewport={{ once: true }}
-                        className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg"
+                        className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg mb-24"
                     >
                         {description}
                     </motion.p>
@@ -144,7 +144,7 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                         viewport={{ once: true }}
-                        className="relative w-full md:hidden my-6 sm:mb-8 h-[220px] sm:h-[280px] rounded-xl overflow-hidden"
+                        className="relative w-full md:hidden my-6  sm:mb-8  h-[400px]  rounded-xl overflow-hidden"
                     >
                         <Image
                             src={image}
@@ -161,7 +161,7 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="hidden md:block relative w-full md:w-[460px] lg:w-[520px] h-[360px] md:h-[420px] lg:h-[500px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg"
+                    className="hidden md:block  relative w-full md:w-[460px] lg:w-[520px] h-[360px] md:h-[420px] lg:h-[500px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg"
                 >
                     <Image
                         src={image}

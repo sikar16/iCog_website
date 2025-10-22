@@ -9,13 +9,13 @@ export default function Hero() {
     const isScrolling = useRef(false);
 
     const images = [
-        "/assets/2025-09-24 05.50.48.jpg",
-        "/assets/2025-09-24 05.51.11.jpg",
-        "/assets/2025-09-24 05.50.55.jpg",
-        "/assets/2025-09-24 05.51.02.jpg",
-        "/assets/2025-09-24 05.51.50.jpg",
-        "/assets/2025-09-24 05.50.55.jpg",
-        "/assets/2025-09-24 05.51.55.jpg",
+        "/assets/Career/photo_2025-10-21_16-36-24.jpg",
+        "/assets/Career/photo_2025-10-21_14-10-24.jpg",
+        "/assets/Career/photo_2025-10-21_14-10-29.jpg",
+        "/assets/Career/IMG_4528.PNG",
+        "/assets/Career/photo_2025-10-21_16-36-15.jpg",
+        "/assets/Career/photo_2025-10-21_16-36-11.jpg",
+
     ];
     const handleWheel = useCallback((e: WheelEvent) => {
         if (isScrolling.current) return;
