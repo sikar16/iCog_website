@@ -33,7 +33,7 @@ const Timeline = ({ events, className }: TimelineProps) => {
     };
 
     return (
-        <div className={cn("w-full", className)}>
+        <div className={cn("w-full", className)} >
             <div className="relative w-full overflow-hidden rounded-[0px_40px_0px_40px] bg-gradient-to-b from-black via-black to-black shadow-2xl">
                 <div className="h-[640px] relative">
                     <div className="absolute inset-0">
@@ -189,7 +189,7 @@ const timelineEvents: TimelineEvent[] = [
 
 const WhatWeDo = () => {
     return (
-        <section className="min-h-screen bg-background py-24 px-6 md:px-12">
+        <section className="min-h-screen bg-background py-24 px-6 md:px-12 " style={{ backgroundImage: "url('./assets/hero.svg')" }}>
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-20">
                     <div className="mb-8 relative w-full flex justify-center">
