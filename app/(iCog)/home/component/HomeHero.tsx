@@ -18,7 +18,7 @@ export default function HomeHero() {
             <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.6 }}
+                viewport={{ once: true, amount: 0.6 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="flex flex-col items-center py-[150px] md:py-[200px]"
             >

@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 export default function Statistics() {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
     const slideFromLeft = {
         hidden: { opacity: 0, x: -100 },
@@ -18,7 +18,7 @@ export default function Statistics() {
             ref={sectionRef}
             className="w-full py-8 md:py-[94px] px-4 sm:px-8 lg:px-8 flex lg:items-center justify-center"
         >
-            <div className="grid grid-cols-1 lg:grid-cols-12 w-full lg:max-w-6xl lg:mx-auto gap-8 lg:gap-0 ">
+            <div className="grid grid-cols-1 lg:grid-cols-12 w-full lg:max-w-6xl lg:mx-auto gap-8 lg:gap-0 lg:items-center">
                 {/* Image Grid */}
                 <div className="w-full lg:col-span-9 lg:max-w-[630px] mx-auto lg:mx-0">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-0 w-full">

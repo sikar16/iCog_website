@@ -26,7 +26,7 @@ export default function CardImagesWithText({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <Card className="w-full max-w-[500px] h-[450px] mx-auto shadow-lg p-0 m-0 overflow-hidden bg-white border-2 border-gray-50">
+            <Card className="w-full max-w-[500px] h-[450px] mx-auto p-0 m-0 overflow-hidden bg-white border-0 shadow-[4px_4px_12px_0px_rgba(0,0,0,0.01),-4px_-4px_12px_0px_rgba(0,0,0,0.01)] hover:shadow-[4px_4px_16px_0px_rgba(0,0,0,0.08),-4px_-4px_16px_0px_rgba(0,0,0,0.08)] transition-shadow duration-300 ease-in-out cursor-pointer">
                 <CardContent className="p-0 m-0">
                     <div className="m-[5px]">
                         {/* Fixed image height + uniform scaling */}
