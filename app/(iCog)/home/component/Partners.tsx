@@ -50,20 +50,19 @@ export default function Partners() {
           {[...images, ...images].map((src, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-28 h-28 transition duration-300 filter grayscale hover:grayscale-0 cursor-pointer rounded-xl p-2 sm:p-3 flex items-center justify-center"
+              className="flex-shrink-0 w-36 h-36 transition duration-300 filter grayscale hover:grayscale-0 cursor-pointer rounded-xl p-2 sm:p-3 flex items-center justify-center"
             >
               <Image
                 src={src}
                 alt={`Partner ${idx + 1}`}
-                width={64}
-                height={64}
+                width={70}
+                height={70}
                 className="object-contain w-full h-full"
               />
             </div>
           ))}
         </div>
 
-        {/* Gradient fade effects on sides */}
         <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
         <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
       </div>

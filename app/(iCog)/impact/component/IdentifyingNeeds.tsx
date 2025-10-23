@@ -40,7 +40,6 @@ export default function IdentifyingNeeds({ shouldAnimate }: IdentifyingNeedsProp
                     Identifying the Needs
                 </h2>
 
-                {/* Grid Layout: 2 cards first row, 1 centered next row */}
                 <div className="grid md:grid-cols-2 gap-10 justify-items-center">
                     {needs.map((need, index) => (
                         <motion.div

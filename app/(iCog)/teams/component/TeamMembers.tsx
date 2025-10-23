@@ -414,7 +414,7 @@ const meetTeams: Member[] = [
         id: 44,
         name: "Iftu Tolesa",
         role: "Operations Assistant",
-        image: "/assets/Teams/Iftu Tolesa.HEIC",
+        image: "/assets/Teams/Iftu tola.JPG",
         hoverImage: "/assets/Teams Fun Photo/Iftu.jpg",
         description: "Dedicated team member contributing to organizational success...",
     },

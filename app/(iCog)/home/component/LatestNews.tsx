@@ -7,19 +7,19 @@ export default function LatestNews() {
     const blogPosts = [
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/About Page/lates.svg",
+            imageSrc: "/assets/Home Page/9b17baa91ae89e73e063437e545b6b28cdbc927a.png",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/About Page/lates3.png",
+            imageSrc: "/assets/Home Page/4a7d40b9d3401801254077bdb3e678c98f391834.jpg ",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/About Page/lates2.svg",
+            imageSrc: "/assets/Home Page/23270ff8a27dab1aafa56385255ff71da8b6adc7.jpg",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },

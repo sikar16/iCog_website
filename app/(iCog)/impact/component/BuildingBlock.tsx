@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React, { useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function BuildingBlock() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -61,85 +61,100 @@ interface SectionProps {
 }
 
 function Section({ image, logo, title, description }: SectionProps) {
+    const sectionRef = useRef<HTMLDivElement>(null)
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"],
+    })
+
+    const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 1, 0.95])
+    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.8])
+    const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -50])
 
     return (
-        <div className='flex flex-col-reverse md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-10 mb-12 sm:mb-16 h-auto md:h-[500px]'>
+        <motion.div
+            ref={sectionRef}
+            style={{ scale, opacity, y }}
+            className="sticky top-0 bg-black text-white min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-20 py-12"
+        >
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-10 w-full max-w-7xl">
 
-            <div className='md:w-[500px] w-full text-center md:text-left'>
-                {logo && (
+                <div className='w-full md:w-[500px] text-center md:text-left'>
+                    {logo && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                            className='inline-block mb-6 sm:mb-8'
+                        >
+                            <Image
+                                src={logo}
+                                alt='Logo'
+                                height={200}
+                                width={140}
+                                className='rounded-xl shadow-lg mx-auto md:mx-0'
+                            />
+                        </motion.div>
+                    )}
+
+                    {title && !logo && (
+                        <motion.h3
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                            className='text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8'
+                        >
+                            {title}
+                        </motion.h3>
+                    )}
+
+
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className='text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg'
+                    >
+                        {description}
+                    </motion.p>
+                    {/* Mobile image */}
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                        className='inline-block mb-6 sm:mb-8'
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        className="relative w-full md:hidden my-6 sm:mb-8 h-[420px] rounded-xl overflow-hidden "
                     >
                         <Image
-                            src={logo}
-                            alt='Logo'
-                            height={200}
-                            width={140}
-                            className='rounded-xl shadow-lg mx-auto md:mx-0'
+                            src={image}
+                            alt={title || "Image"}
+                            fill
+                            className="object-contain w-full h-full rounded-xl"
                         />
+                        <div className="absolute inset-0 bg-black/10"></div>
                     </motion.div>
-                )}
-
-                {title && !logo && (
-                    <motion.h3
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                        className='text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8'
-                    >
-                        {title}
-                    </motion.h3>
-                )}
 
 
+                </div>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    className='text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg'
-                >
-                    {description}
-                </motion.p>
-                {/* Mobile image */}
+                {/* Right: Image (desktop) */}
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 120 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                    className="relative w-full md:hidden my-6 sm:mb-8 h-[420px] rounded-xl overflow-hidden "
+                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="hidden md:block relative w-full md:w-[460px] lg:w-[520px] h-[420px] lg:h-[520px] rounded-xl overflow-hidden shadow-lg"
                 >
                     <Image
                         src={image}
-                        alt={title || "Image"}
+                        alt={title || 'Image'}
                         fill
-                        className="object-contain w-full h-full rounded-xl"
+                        className='object-fill w-full h-full rounded-xl'
                     />
-                    <div className="absolute inset-0 bg-black/10"></div>
+                    <div className='absolute inset-0 bg-black/10'></div>
                 </motion.div>
-
-
             </div>
-
-            {/* Right: Image (desktop) */}
-            <motion.div
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className='hidden md:block relative w-full md:w-[480px] lg:w-[520px] h-[380px] md:h-[420px] bg-gradient-to-tr from-[#0A213C] to-[#6D3431] rounded-xl overflow-hidden shadow-lg'
-            >
-                <Image
-                    src={image}
-                    alt={title || 'Image'}
-                    fill
-                    className='object-fill w-full h-full rounded-xl'
-                />
-                <div className='absolute inset-0 bg-black/10'></div>
-            </motion.div>
-        </div>
+        </motion.div>
     )
 }

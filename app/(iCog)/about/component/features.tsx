@@ -1,32 +1,35 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useRef, useState } from "react"
-import { motion, useScroll, useTransform, useSpring } from "framer-motion"
+import Image from "next/image";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function Features() {
-    const containerRef = useRef<HTMLDivElement>(null)
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const sections = [
         {
             title: "Training",
-            description: "We believe in the power of education and are committed to its continuous improvement. Our training programs are efficient, data-driven, and designed for measurable impact. We work to break down barriers, ensuring access to digital skills for individuals from all backgrounds",
+            description:
+                "We believe in the power of education and are committed to its continuous improvement. Our training programs are efficient, data-driven, and designed for measurable impact. We work to break down barriers, ensuring access to digital skills for individuals from all backgrounds.",
             image: "/assets/About Page/photo_2025-06-26_11-38-28.jpg",
             imageAlt: "Training",
         },
         {
             title: "Product",
-            description: "We are deeply committed to driving innovation through a strong focus on product development. Our dedicated team is actively engaged in research, design, and development to create diverse solutions to local problems. These span multiple areas and are aimed at addressing various challenges and opportunities in the market.",
+            description:
+                "We are deeply committed to driving innovation through a strong focus on product development. Our dedicated team is actively engaged in research, design, and development to create diverse solutions to local problems. These span multiple areas and are aimed at addressing various challenges and opportunities in the market.",
             image: "/assets/About Page/photo_2025-06-26_11-38-33.jpg",
             imageAlt: "Product",
         },
         {
             title: "Consultancy",
-            description: "We thrive on solving challenges through technology across multiple sectors. With its blend of youthfulness, fresh perspectives, and deep understanding of the local context, our team is uniquely positioned to provide innovative solutions. We offer a tech-forward approach with a blend of emerging technologies and possess the expertise to guide and work with companies looking to implement impactful projects, across multiple sectors, that effectively leverage emerging technologies. Here are some companies we have worked with.",
+            description:
+                "We thrive on solving challenges through technology across multiple sectors. With its blend of youthfulness, fresh perspectives, and deep understanding of the local context, our team is uniquely positioned to provide innovative solutions. We offer a tech-forward approach with a blend of emerging technologies and possess the expertise to guide and work with companies looking to implement impactful projects, across multiple sectors, that effectively leverage emerging technologies. Here are some companies we have worked with.",
             image: "/assets/About Page/photo_2025-06-26_11-38-36.jpg",
             imageAlt: "Consultancy",
         },
-    ]
+    ];
 
     return (
         <div ref={containerRef} className="bg-white relative">
@@ -41,68 +44,70 @@ export default function Features() {
                 />
             ))}
         </div>
-    )
+    );
 }
 
 interface SolutionSectionProps {
-    index: number
-
-    title: string
-    description: string
-    image: string
-    imageAlt: string
+    index: number;
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
 }
 
-function SolutionSection({ index, title, description, image, imageAlt }: SolutionSectionProps) {
-    const sectionRef = useRef<HTMLDivElement>(null)
-    const [isHovered, setIsHovered] = useState(false)
+function SolutionSection({
+    index,
+    title,
+    description,
+    image,
+    imageAlt,
+}: SolutionSectionProps) {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [isHovered, setIsHovered] = useState(false);
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"],
-    })
+    });
 
     const smoothProgress = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
-        restDelta: 0.001
-    })
-
-    const zIndex = 10 + index
+        restDelta: 0.001,
+    });
 
     const grayscale = useTransform(smoothProgress, (progress) => {
-        const centerStart = 0.1
-        const centerEnd = 0.6
-        if (progress >= centerStart && progress <= centerEnd) return "grayscale(0%)"
-        return "grayscale(100%)"
-    })
+        const centerStart = 0.1;
+        const centerEnd = 0.6;
+        if (progress >= centerStart && progress <= centerEnd) return "grayscale(0%)";
+        return "grayscale(100%)";
+    });
 
-    const scale = useTransform(smoothProgress, [0.9, 1, 0.9], [0.9, 1, 0.9])
-    const y = useTransform(smoothProgress, [0, 0.5, 1], [30, 0, 50])
-    const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
-
-    const isOdd = index % 2 !== 0
+    const scale = useTransform(smoothProgress, [0.9, 1, 0.9], [0.9, 1, 0.9]);
+    const y = useTransform(smoothProgress, [0, 0.5, 1], [30, 0, 50]);
+    const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+    const isOdd = index % 2 !== 0;
 
     const videos = [
         "/assets/About Page/training.mp4",
         "/assets/About Page/product.mp4",
         "/assets/About Page/consultancy.mp4",
-    ]
-    const video = videos[index]
+    ];
+    const video = videos[index];
 
     return (
         <motion.div
             ref={sectionRef}
             id={title.toLowerCase()}
-            style={{ opacity, zIndex }}
+            style={{ opacity, filter: grayscale }}
             className="sticky top-0 flex items-center justify-center min-h-[60vh]"
         >
             <motion.div
-                style={{ scale, filter: grayscale, y }}
-                className={`flex flex-col gap-11 ${isOdd ? "md:flex-row-reverse" : "md:flex-row"} 
-                items-center justify-between w-full max-w-7xl p-10 bg-white rounded-3xl shadow-sm relative overflow-hidden border border-gray-100`}
+                style={{ scale, y }}
+                className={`flex flex-col gap-11 ${isOdd ? "md:flex-row-reverse" : "md:flex-row"
+                    } items-center justify-between w-full max-w-7xl p-10 
+        bg-white rounded-3xl shadow-md relative overflow-hidden border border-gray-100`}
             >
-                <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-transparent pointer-events-none" />
 
                 {/* TEXT SECTION */}
                 <div className="flex-1 text-left space-y-6 relative z-10">
@@ -137,7 +142,7 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
 
                 {/* IMAGE / VIDEO SECTION */}
                 <motion.div
-                    className="relative block md:flex-1 w-full rounded-2xl overflow-hidden mb-6 sm:mb-0 h-[250px] sm:h-[350px] md:h-[450px] flex-shrink-0"
+                    className="relative block md:flex-1 w-full rounded-2xl overflow-hidden mb-6 sm:mb-0 h-[250px] sm:h-[350px] md:h-[450px] flex-shrink-0 bg-gray-100"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
@@ -159,9 +164,8 @@ function SolutionSection({ index, title, description, image, imageAlt }: Solutio
                             priority={index === 0}
                         />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent" />
                 </motion.div>
             </motion.div>
         </motion.div>
-    )
+    );
 }
