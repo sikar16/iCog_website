@@ -12,7 +12,7 @@ export default function HomeHero() {
 
     return (
         <div
-            className="w-full h-[80vh] flex  justify-center  px-6 sm:px-10 md:px-[100px] mx-auto "
+            className="w-full h-screen flex max-w-[1300px] mx-auto justify-center items-center px-6 sm:px-10 md:px-[100px] "
             style={{ backgroundImage: "url('./assets/hero.svg')" }}
         >
             <motion.div
@@ -23,7 +23,7 @@ export default function HomeHero() {
                 className="flex flex-col items-center py-[150px] md:py-[200px]"
             >
                 {/* Title */}
-                <h1 className="sm:text-center font-bold leading-tight text-[clamp(28px,6vw,58px)] max-w-[980px]">
+                <h1 className="sm:text-center font-extrabold w-[100%] leading-tight text-[clamp(28px,6vw,58px)] 2xl:text-[clamp(28px,6vw,85px)]">
                     Democratizing Access to <br className="hidden sm:block" /> Technology
                 </h1>
 
@@ -34,7 +34,7 @@ export default function HomeHero() {
                     consultancy
                 </p>
 
-                <div className="flex flex-col sm:flex-row justify-between md:items-center gap-6 sm:gap-10 md:gap-[100px] rounded-xl shadow-xl py-6 px-8 bg-white max-w-4xl w-full">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-8 rounded-tr-[16px] rounded-bl-[16px] bg-white w-full max-w-[1163px] h-auto py-6 px-8 2xl:py-8 border-t-2 border-gray-200 opacity-70 shadow-[4px_4px_12px_0px_rgba(0,0,0,0.08),-4px_-4px_12px_0px_rgba(0,0,0,0.08)]">
                     {sections.map((section, index) => (
                         <motion.div
                             key={index}

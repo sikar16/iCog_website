@@ -6,7 +6,7 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 
 const helveticaNeue = localFont({
-  variable: "--font-geist-sans",
+  variable: "--font-helvetica-neue",
   src: [
     { path: "../public/fonts/helvetica-neue-5/HelveticaNeueThin.otf", weight: "100", style: "normal" },
     { path: "../public/fonts/helvetica-neue-5/HelveticaNeueThinItalic.otf", weight: "100", style: "italic" },
