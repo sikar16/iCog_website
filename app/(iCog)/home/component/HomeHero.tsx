@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 export default function HomeHero() {
     const sections = [
-        { imageSrc: "/assets/traning.svg", description: "Trainings" },
-        { imageSrc: "/assets/product.svg", description: "Product" },
-        { imageSrc: "/assets/conseltancy.svg", description: "Consultancy" },
+        { imageSrc: "/assets/Pillars/traning.svg", description: "Training", target: "/about/#training" },
+        { imageSrc: "/assets/Pillars/product.svg", description: "Product", target: "/about/#product" },
+        { imageSrc: "/assets/Pillars/conseltancy.svg", description: "Consultancy", target: "/about/#consultancy" },
     ];
 
     return (
@@ -29,16 +29,15 @@ export default function HomeHero() {
 
                 {/* Description */}
                 <p className="sm:text-center  text-[#626161] mt-6 mb-10 max-w-[676px] text-sm sm:text-base md:text-lg">
-                    iCog is an affiliate company of iCog Labs, dedicated to democratizing
-                    access to technology through training, product development and
-                    consultancy
+                    iCog is an affiliate of iCog labs, dedicated to democratizing access to technology through training, product development and consultancy .
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-8 rounded-tr-[16px] rounded-bl-[16px] bg-white w-full max-w-[1163px] h-auto py-6 px-8 2xl:py-8 border-t-2 border-gray-200 opacity-70 shadow-[4px_4px_12px_0px_rgba(0,0,0,0.08),-4px_-4px_12px_0px_rgba(0,0,0,0.08)]">
                     {sections.map((section, index) => (
-                        <motion.div
+                        <motion.a
                             key={index}
-                            className="flex gap-3 md:items-center bg-white"
+                            href={section.target}
+                            className="flex gap-3 md:items-center bg-white cursor-pointer hover:text-gray-900 transition-all"
                         >
                             <Image
                                 src={section.imageSrc}
@@ -49,7 +48,7 @@ export default function HomeHero() {
                             <p className="text-base sm:text-[16.67px] font-medium">
                                 {section.description}
                             </p>
-                        </motion.div>
+                        </motion.a>
                     ))}
                 </div>
             </motion.div>

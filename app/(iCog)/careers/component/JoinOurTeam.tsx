@@ -34,7 +34,6 @@ export default function JoinOurTeam() {
         },
     ];
 
-    // Animation variants
     const textVariant = {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -46,7 +45,7 @@ export default function JoinOurTeam() {
     });
 
     return (
-        <section className="w-full bg-white py-16 sm:py-20 px-4 sm:px-8 md:px-20">
+        <section className="w-full bg-white py-16 px-4 sm:px-8 md:px-20 ">
             <div className="max-w-7xl mx-auto text-center">
                 {/* Title */}
                 <motion.h1
@@ -59,7 +58,6 @@ export default function JoinOurTeam() {
                     Join Our Team <br className="hidden sm:block" /> Let’s Work Together
                 </motion.h1>
 
-                {/* Jobs Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-x-12 md:gap-y-10">
                     {jobs.map((job, index) => (
                         <motion.div
@@ -74,7 +72,8 @@ export default function JoinOurTeam() {
                                 {job.title}
                             </h2>
                             <p className="text-sm text-gray-500 mt-1">
-                                {job.location} |{" "}
+                                {job.location}
+                                <span className="mx-4">|</span>
                                 <span className="text-green-600 font-medium">
                                     {job.type}
                                 </span>

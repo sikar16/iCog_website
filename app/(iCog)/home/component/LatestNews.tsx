@@ -7,19 +7,19 @@ export default function LatestNews() {
     const blogPosts = [
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/lates.svg",
+            imageSrc: "/assets/Home Page/9b17baa91ae89e73e063437e545b6b28cdbc927a.png",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/lates3.png",
+            imageSrc: "/assets/Home Page/4a7d40b9d3401801254077bdb3e678c98f391834.jpg ",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
         {
             date: "October 31, 2024",
-            imageSrc: "/assets/lates2.svg",
+            imageSrc: "/assets/Home Page/23270ff8a27dab1aafa56385255ff71da8b6adc7.jpg",
             readTime: "4 minutes read",
             title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
         },
@@ -31,15 +31,13 @@ export default function LatestNews() {
 
     useEffect(() => {
         if (isInView) {
-            // when in view, trigger the sequence
             controls.start("titleVisible");
             const timer = setTimeout(() => {
                 controls.start("cardsVisible");
-            }, 800); // small delay before cards
+            }, 800);
 
             return () => clearTimeout(timer);
         } else {
-            // when out of view, reset animations
             controls.start("hidden");
         }
     }, [isInView, controls]);
@@ -72,7 +70,6 @@ export default function LatestNews() {
 
     return (
         <div ref={ref} className="px-4 lg:px-[100px] xl:px-[150px] pt-[120px] pb-[116px] mx-auto overflow-hidden">
-            {/* Title animation */}
             <motion.div
                 initial="hidden"
                 animate={controls}
@@ -83,11 +80,10 @@ export default function LatestNews() {
                 className="text-center"
             >
                 <p className="text-[30px] md:text-[38px] font-semibold">
-                    Latest news & articles
+                    Latest news & article
                 </p>
             </motion.div>
 
-            {/* Cards animation */}
             <motion.div
                 className="
                     mt-10 md:mt-[50px]

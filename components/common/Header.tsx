@@ -18,21 +18,21 @@ export default function Header() {
         { name: "Impact", href: "/impact" },
         { name: "Careers", href: "/careers" },
         { name: "Teams", href: "/teams" },
-        { name: "Blog", href: "/blog" },
+
     ]
     return (
-        // <div className=' stick top-0  left-0 z-50 w-full border-b border-white bg-white/4 backdrop-blur-lg mx-[40px] px-10 sm:px-14 py-[14px] flex justify-between items-center '>
         <div className="fixed top-0 left-0 z-50 w-full border-b border-white bg-white/40 backdrop-blur-lg px-10 sm:px-10 py-[14px] ">
             <div className='  flex justify-between items-center'>
-                <div>
-                    <Image
-                        src="/assets/logo.svg"
-                        alt='iCog logo'
-                        width={126}
-                        height={52}
-                    />
-                </div>
-
+                <Link href="/home">
+                    <div>
+                        <Image
+                            src="/assets/logo.svg"
+                            alt='iCog logo'
+                            width={126}
+                            height={52}
+                        />
+                    </div>
+                </Link>
                 <div className='hidden md:flex gap-7'>
                     <Menubar className='border-0 shadow-none gap-7 bg-transparent'>
                         <MenubarMenu>
@@ -53,7 +53,6 @@ export default function Header() {
                     <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                         {mobileMenuOpen ? <X size={28} /> :
                             <Image src="/menu.svg" alt="Menu" width={35} height={35} />
-                            // <Menu size={28} />
                         }
                     </button>
                 </div>

@@ -4,29 +4,25 @@ import Image from "next/image";
 
 export default function Hero() {
     const [currentIndex, setCurrentIndex] = useState(3);
-    const [windowWidth, setWindowWidth] = useState(1200); // Default fallback
+    const [windowWidth, setWindowWidth] = useState(1200);
     const containerRef = useRef<HTMLDivElement>(null);
     const isScrolling = useRef(false);
 
     const images = [
-        "/assets/2025-09-24 05.50.48.jpg",
-        "/assets/2025-09-24 05.51.11.jpg",
-        "/assets/2025-09-24 05.50.55.jpg",
-        "/assets/2025-09-24 05.51.02.jpg",
-        "/assets/2025-09-24 05.51.50.jpg",
-        "/assets/2025-09-24 05.50.55.jpg",
-        "/assets/2025-09-24 05.51.55.jpg",
-    ];
+        "/assets/Career/photo_2025-10-21_16-36-24.jpg",
+        "/assets/Career/photo_2025-10-21_14-10-24.jpg",
+        "/assets/Career/photo_2025-10-21_14-10-29.jpg",
+        "/assets/Career/IMG_4528.PNG",
+        "/assets/Career/photo_2025-10-21_16-36-15.jpg",
+        "/assets/Career/photo_2025-10-21_16-36-11.jpg",
 
-    // Wheel scroll
+    ];
     const handleWheel = useCallback((e: WheelEvent) => {
         if (isScrolling.current) return;
         isScrolling.current = true;
         setCurrentIndex((prev) => (e.deltaY > 0 ? (prev + 1) % images.length : (prev - 1 + images.length) % images.length));
         setTimeout(() => (isScrolling.current = false), 500);
     }, [images.length]);
-
-    // Touch swipe
     const touchStartX = useRef<number>(0);
 
     const handleTouchStart = (e: React.TouchEvent) => (touchStartX.current = e.touches[0].clientX);
@@ -43,7 +39,6 @@ export default function Hero() {
     };
 
     useEffect(() => {
-        // Set initial window width
         if (typeof window !== 'undefined') {
             setWindowWidth(window.innerWidth);
         }
@@ -54,7 +49,6 @@ export default function Hero() {
         return () => container.removeEventListener("wheel", handleWheel);
     }, [handleWheel]);
 
-    // Handle window resize
     useEffect(() => {
         if (typeof window === 'undefined') return;
 
@@ -65,7 +59,6 @@ export default function Hero() {
 
     return (
         <div className="w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-background mt-[-60px]">
-            {/* Header */}
             <div className="max-w-4xl mx-auto text-center mb-32 px-4">
                 <h1 className="text-[40px] md:text-[53px] font-bold mb-4 text-foreground">
                     What It Means to Work at iCog </h1>
@@ -77,7 +70,6 @@ export default function Hero() {
                 </p>
             </div>
 
-            {/* Fullscreen Carousel */}
             <div
                 ref={containerRef}
                 className="relative w-full flex items-center justify-center cursor-grab active:cursor-grabbing  gap-10 space-x-6 my-16"
@@ -91,26 +83,17 @@ export default function Hero() {
                         const distanceFromCenter = index - centerIndex;
                         const wrappedDistance = ((distanceFromCenter + total) % total) % total;
                         const displayDistance = wrappedDistance > total / 2 ? wrappedDistance - total : wrappedDistance;
-
-                        const visibleRange = 3; // visible images
+                        const visibleRange = 3;
                         if (Math.abs(displayDistance) > visibleRange) return null;
-
-                        // Fixed size
                         const cardWidth = 250;
                         const cardHeight = 300;
-
-                        // Spacing across full width
-                        const maxAngle = 45; // max angle for side images
+                        const maxAngle = 45;
                         const angleStep = maxAngle / visibleRange;
                         const angle = displayDistance * angleStep;
                         const radius = windowWidth / 2 - cardWidth / 2;
                         const translateX = Math.sin((angle * Math.PI) / 120) * radius;
-                        const translateY = Math.cos((angle * Math.PI) / -100) * 30; // slight vertical arc
-
-                        // Rotation
+                        const translateY = Math.cos((angle * Math.PI) / -100) * 30;
                         const rotateY = -angle;
-
-                        // Layering
                         const zIndex = Math.abs(displayDistance);
 
                         return (

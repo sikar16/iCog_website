@@ -28,15 +28,13 @@ const Timeline = ({ events, className }: TimelineProps) => {
         setActiveIndex(index);
     };
 
-    // Determine animation direction based on whether we're moving forward or backward
     const getAnimationDirection = () => {
         return activeIndex > prevIndex ? "fromBottom" : "fromTop";
     };
 
     return (
         <div className={cn("w-full", className)}>
-            <div className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-2xl">
-                {/* Background Image */}
+            <div className="relative w-full overflow-hidden rounded-[0px_40px_0px_40px] bg-gradient-to-b from-black via-black to-black shadow-2xl">
                 <div className="h-[640px] relative">
                     <div className="absolute inset-0">
                         {activeEvent.image && (
@@ -44,18 +42,14 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                 src={activeEvent.image}
                                 alt={activeEvent.title}
                                 fill
-                                className="object-cover opacity-25"
+                                className="object-cover opacity-35"
                                 priority
                             />
                         )}
                     </div>
                 </div>
-
-                {/* Content */}
                 <div className="absolute inset-0 z-10 px-8 py-12 md:px-16 md:py-20 text-white">
-                    {/* Timeline Bar */}
                     <div className="relative flex items-center justify-between mb-8 w-full">
-                        {/* Full-width base line */}
                         <div className="absolute left-0 right-0 top-1/2 h-[3px] bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 rounded-full -translate-y-1/2" />
 
                         {events.map((event, index) => {
@@ -66,7 +60,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                     onClick={() => handleYearClick(index)}
                                     className="relative flex flex-col items-center z-10 group w-full"
                                 >
-                                    {/* Dot */}
                                     <div className="flex flex-col items-center">
                                         <div
                                             className={cn(
@@ -76,8 +69,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                                     : "bg-gray-500/60 border-gray-400 group-hover:bg-gray-300 group-hover:scale-110"
                                             )}
                                         />
-
-                                        {/* Vertical Active Line */}
                                         {active && (
                                             <motion.div
                                                 layoutId="activeLine"
@@ -87,7 +78,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                                         )}
                                     </div>
 
-                                    {/* Year */}
                                     <span
                                         className={cn(
                                             "mt-4 text-sm md:text-base transition-colors duration-300",
@@ -103,7 +93,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
                         })}
                     </div>
 
-                    {/* Title & Description */}
                     <div className="max-w-3xl mx-auto text-left mt-16">
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -137,11 +126,14 @@ const Timeline = ({ events, className }: TimelineProps) => {
     );
 };
 
-/* Example Usage */
-import vintageComputer from "@/public/assets/2025-09-24 05.50.55.jpg";
-import image1 from "@/public/assets/463511bae3e22dee6d837c327538b673293853e4.jpg"
-import image2 from "@/public/assets/photo_2025-06-26_15-26-03.jpg"
-import image3 from "@/public/assets/463511bae3e22dee6d837c327538b673293853e4.jpg"
+import image1 from "@/public/assets/About Page/463511bae3e22dee6d837c327538b673293853e4.jpg"
+import image2 from "@/public/assets/About Page/unnam.jpg"
+import image3 from "@/public/assets/About Page/photo_2025-10-21_14-10-08.jpg"
+import image4 from "@/public/assets/About Page/photo_2025-10-21_14-10-10.jpg"
+import image5 from "@/public/assets/About Page/unnamed.png"
+import image6 from "@/public/assets/About Page/photo_2025-06-17_16-18-31.jpg"
+import image7 from "@/public/assets/About Page/unnamed (2).jpg"
+
 
 const timelineEvents: TimelineEvent[] = [
     {
@@ -155,22 +147,43 @@ const timelineEvents: TimelineEvent[] = [
         year: 2016,
         title: "Launching iCog Anyone Can Code",
         description:
-            "In 2016, iCog Anyone One Can Code was formed as a project under iCog Labs in 2016 with its first summer camp launching that summer.",
+            "In 2016, iCog Anyone Can Code was formed as a project under iCog Labs, with its first summer camp launching that summer.",
         image: image2,
     },
     {
         year: 2018,
         title: "Introducing the Solve IT",
         description:
-            "2018 – Solve IT, a nationwide innovation competition, was launched to promote problem-solving, creativity, and support for Ethiopia's startup ecosystem.",
+            "Solve IT, a nationwide innovation competition, was launched to promote problem-solving, creativity, and support for Ethiopia’s startup ecosystem.",
         image: image3,
     },
     {
         year: 2020,
-        title: "Remote Revolution",
+        title: "Formally Becoming iCog",
         description:
-            "The pandemic accelerated digital transformation, redefining how people work and connect globally.",
-        image: vintageComputer,
+            "iCog became a full-fledged company, expanding its mission to include tech training and entrepreneurship.",
+        image: image4,
+    },
+    {
+        year: 2022,
+        title: "Starting the DigiTruck Initiative",
+        description:
+            "DigiTruck, a mobile tech classroom housed in a refurbished 40ft container, was launched to bring hands-on digital education to underserved communities.",
+        image: image5,
+    },
+    {
+        year: 2024,
+        title: "A New Chapter: iCog Rebrands",
+        description:
+            "iCog rebranded and expanded its services to include training, product development, and consultancy.",
+        image: image6,
+    },
+    {
+        year: 2025,
+        title: "Beginning Data Collection with Leyu",
+        description:
+            "Leyu, a crowdsourcing platform for Ethiopian languages, began data collection to support high-quality datasets for low-resource languages.",
+        image: image7,
     },
 ];
 
@@ -178,7 +191,6 @@ const WhatWeDo = () => {
     return (
         <section className="min-h-screen bg-background py-24 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="text-center mb-20">
                     <div className="mb-8 relative w-full flex justify-center">
                         <h2 className="text-center font-bold tracking-tight text-black text-[40px] md:text-[53px] relative z-10">
@@ -187,7 +199,7 @@ const WhatWeDo = () => {
 
                         <div className="absolute bottom-0 flex justify-center w-full left-[4%]">
                             <div className="h-1 bg-gray-200 w-[150px] relative overflow-hidden">
-                                <div className="h-1 bg-black animate-snakeSmooth absolute left-1/2 -translate-x-1/2"></div>
+                                <div className="h-1  animate-snakeSmooth absolute left-1/2 -translate-x-1/2"></div>
                             </div>
                         </div>
                     </div>
@@ -217,14 +229,13 @@ const WhatWeDo = () => {
                     `}</style>
 
                     <p className="text-lg md-text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        We combine training, product development, and consultancy to deliver
-                        impactful tech solutions. With a focus on accessibility, innovation,
-                        and local relevance, our work bridges skill gaps and builds tools
-                        that matter.
+                        We combine training, product development, and consultancy to deliver impactful tech solutions.
+                        With a focus on accessibility, innovation, and local relevance, our work bridges skill gaps, builds
+                        tools that matter, and supports organizations in creating meaningful change through technology
+
                     </p>
                 </div>
 
-                {/* Timeline */}
                 <Timeline events={timelineEvents} />
             </div>
         </section>
