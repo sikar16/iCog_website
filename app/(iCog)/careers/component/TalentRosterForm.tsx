@@ -28,9 +28,9 @@ export default function TalentRosterForm() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
-            className="w-full bg-white justify-center my-[105px] px-10 mt-52"
+            className="w-full bg-white justify-center my-[105px] mt-52"
         >
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
+            <div className="max-w-8xl mx-auto flex flex-col px-10 lg:flex-row">
                 {/* LEFT IMAGE SECTION */}
                 <motion.div
                     initial={{ opacity: 0, y: 80 }}

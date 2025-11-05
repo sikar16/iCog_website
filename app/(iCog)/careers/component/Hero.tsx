@@ -1,126 +1,234 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
+import { useRef, useState } from "react";
 
 export default function Hero() {
-    const [currentIndex, setCurrentIndex] = useState(3);
-    const [windowWidth, setWindowWidth] = useState(1200);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const isScrolling = useRef(false);
+  const images = [
+    "/assets/Career/photo_2025-10-21_16-36-11.jpg",
+    "/assets/Career/photo_2025-10-21_14-10-24.jpg",
+    "/assets/Career/photo_2025-10-21_16-36-24.jpg",
+    "/assets/Career/IMG_4528.PNG",
+    "/assets/Career/photo_2025-10-21_14-10-29.jpg",
+    "/assets/Career/photo_2025-10-21_16-36-15.jpg",
+    "/assets/Career/photo_2025-10-21_16-36-31.jpg",
+  ];
 
-    const images = [
-        "/assets/Career/photo_2025-10-21_16-36-24.jpg",
-        "/assets/Career/photo_2025-10-21_14-10-24.jpg",
-        "/assets/Career/photo_2025-10-21_14-10-29.jpg",
-        "/assets/Career/IMG_4528.PNG",
-        "/assets/Career/photo_2025-10-21_16-36-15.jpg",
-        "/assets/Career/photo_2025-10-21_16-36-11.jpg",
+  const centerIndex = Math.floor(images.length / 2);
 
-    ];
-    const handleWheel = useCallback((e: WheelEvent) => {
-        if (isScrolling.current) return;
-        isScrolling.current = true;
-        setCurrentIndex((prev) => (e.deltaY > 0 ? (prev + 1) % images.length : (prev - 1 + images.length) % images.length));
-        setTimeout(() => (isScrolling.current = false), 500);
-    }, [images.length]);
-    const touchStartX = useRef<number>(0);
+  // 🎯 CONTROL THE ARCH SCALE HERE
+  const centerHeight = 270;
+  const outerHeights = [centerHeight, 305, 380, 440];
 
-    const handleTouchStart = (e: React.TouchEvent) => (touchStartX.current = e.touches[0].clientX);
-    const handleTouchEnd = (e: React.TouchEvent) => {
-        if (isScrolling.current) return;
-        const diff = touchStartX.current - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) {
-            isScrolling.current = true;
-            setCurrentIndex((prev) =>
-                diff > 0 ? (prev + 1) % images.length : (prev - 1 + images.length) % images.length
+  // --- Continuous loop logic ---
+  const [offset, setOffset] = useState(0);
+  const x = useMotionValue(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Update offset continuously while dragging
+  useAnimationFrame(() => {
+    const current = x.get();
+    if (Math.abs(current) > 0.5) {
+      setOffset((prev) => prev + current * 0.01); // increased sensitivity for smoother scrolling
+    }
+  });
+
+  const handleDrag = (_: any, info: any) => {
+    x.set(info.delta.x);
+  };
+
+  const handleDragEnd = () => {
+    x.set(0); // stop movement immediately
+  };
+
+  // Utility for looping index
+  const modIndex = (index: number, length: number) =>
+    ((index % length) + length) % length;
+
+  return (
+    <div className="w-full min-h-screen overflow-hidden flex flex-col items-center justify-start bg-background">
+      {/* SVG Clip Paths */}
+      <svg width="0" height="0" style={{ position: "absolute" }}>
+        <defs>
+          {/* Rectangle for center */}
+          <clipPath id="clip-center" clipPathUnits="objectBoundingBox">
+            <rect x="0" y="0" width="1" height="1" rx="0.05" ry="0.05" />
+          </clipPath>
+
+          {/* Trapezoid shapes for left and right */}
+          {[1, 2, 3].map((dist) => {
+            const innerHeight = outerHeights[dist - 1];
+            const outerHeight = outerHeights[dist];
+            const topOffset = (outerHeight - innerHeight) / 2 / outerHeight;
+            const bottomOffset = 1 - topOffset - innerHeight / outerHeight;
+
+            return (
+              <clipPath
+                key={`left-${dist}`}
+                id={`clip-left-${dist}`}
+                clipPathUnits="objectBoundingBox"
+              >
+                <path
+                  d={`
+                    M 0.05 0
+                    L 0.95 ${topOffset}
+                    Q 1 ${topOffset} 1 ${topOffset + 0.05}
+                    L 1 ${1 - bottomOffset - 0.05}
+                    Q 1 ${1 - bottomOffset} 0.95 ${1 - bottomOffset}
+                    L 0.05 1
+                    Q 0 1 0 0.95
+                    L 0 0.05
+                    Q 0 0 0.05 0
+                    Z
+                  `}
+                />
+              </clipPath>
             );
-            setTimeout(() => (isScrolling.current = false), 500);
-        }
-    };
+          })}
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setWindowWidth(window.innerWidth);
-        }
+          {[1, 2, 3].map((dist) => {
+            const innerHeight = outerHeights[dist - 1];
+            const outerHeight = outerHeights[dist];
+            const topOffset = (outerHeight - innerHeight) / 2 / outerHeight;
+            const bottomOffset = 1 - topOffset - innerHeight / outerHeight;
 
-        const container = containerRef.current;
-        if (!container) return;
-        container.addEventListener("wheel", handleWheel, { passive: false });
-        return () => container.removeEventListener("wheel", handleWheel);
-    }, [handleWheel]);
+            return (
+              <clipPath
+                key={`right-${dist}`}
+                id={`clip-right-${dist}`}
+                clipPathUnits="objectBoundingBox"
+              >
+                <path
+                  d={`
+                    M 0.05 ${topOffset}
+                    Q 0 ${topOffset} 0 ${topOffset + 0.05}
+                    L 0 ${1 - bottomOffset - 0.05}
+                    Q 0 ${1 - bottomOffset} 0.05 ${1 - bottomOffset}
+                    L 0.95 1
+                    Q 1 1 1 0.95
+                    L 1 0.05
+                    Q 1 0 0.95 0
+                    Z
+                  `}
+                />
+              </clipPath>
+            );
+          })}
+        </defs>
+      </svg>
 
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
+      {/* Header */}
+      <div className="w-full mt-36 text-center my-16 md:mb-6 px-4 z-10">
+        <h1 className="text-[40px] md:text-[53px] font-bold mb-4 text-foreground">
+          What It Means to Work at iCog
+        </h1>
+        <p className="text-[16px] text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          Working at iCog means being part of a team that&apos;s curious,
+          creative, and committed to making a real difference. Whether you join
+          as an intern or a full-time team member, you&apos;re welcomed into an
+          environment that values{" "}
+          <span className="font-semibold text-foreground">learning</span>,{" "}
+          <span className="font-semibold text-foreground">team-work</span> and{" "}
+          <span className="font-semibold text-foreground">
+            technology for positive change
+          </span>
+          .
+        </p>
+      </div>
 
-        const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+      {/* Gallery */}
+      <div className="relative w-full max-w-7xl mx-auto px-4 mb-16" ref={containerRef}>
+        <motion.div
+          className="flex items-center justify-center gap-1 md:gap-7 cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDrag={handleDrag}
+          onDragEnd={handleDragEnd}
+        >
+          {Array.from({ length: 19 }).map((_, visibleIndex) => {
+            // Get fractional and integer parts of offset
+            const fractionalOffset = offset - Math.floor(offset);
+            const baseIndex = Math.floor(offset);
+            
+            // Calculate which image to show
+            const effectiveIndex = modIndex(baseIndex + visibleIndex - 1, images.length);
+            const image = images[effectiveIndex];
 
-    return (
-        <div className="w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-background mt-[-60px]">
-            <div className="max-w-4xl mx-auto text-center mb-32 px-4">
-                <h1 className="text-[40px] md:text-[53px] font-bold mb-4 text-foreground">
-                    What It Means to Work at iCog </h1>
-                <p className="text-[16px] text-muted-foreground leading-relaxed max-w-3xl mx-auto ">
-                    Working at iCog means being part of a team that&apos;s curious, creative, and committed to making a real difference. Whether you join as an intern or a full-time team member, you&apos;re welcomed into an environment that values{" "}
-                    <span className="font-semibold text-foreground">learning</span>,{" "}
-                    <span className="font-semibold text-foreground">team-work</span> and{" "}
-                    <span className="font-semibold text-foreground">technology for positive change</span>.
-                </p>
-            </div>
+            // Calculate the smooth relative position from center
+            const relativePosition = visibleIndex - 1 - centerIndex - fractionalOffset;
+            const absolutePosition = Math.abs(relativePosition);
+            
+            // Skip rendering items too far from center
+            if (absolutePosition > 3.5) return null;
+            
+            const isLeft = relativePosition < 0;
 
-            <div
-                ref={containerRef}
-                className="relative w-full flex items-center justify-center cursor-grab active:cursor-grabbing  gap-10 space-x-6 my-16"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-            >
-                <div className="relative w-full flex items-center justify-center " style={{ perspective: "2000px" }}>
-                    {images.map((src, index) => {
-                        const total = images.length;
-                        const centerIndex = currentIndex;
-                        const distanceFromCenter = index - centerIndex;
-                        const wrappedDistance = ((distanceFromCenter + total) % total) % total;
-                        const displayDistance = wrappedDistance > total / 2 ? wrappedDistance - total : wrappedDistance;
-                        const visibleRange = 3;
-                        if (Math.abs(displayDistance) > visibleRange) return null;
-                        const cardWidth = 250;
-                        const cardHeight = 300;
-                        const maxAngle = 45;
-                        const angleStep = maxAngle / visibleRange;
-                        const angle = displayDistance * angleStep;
-                        const radius = windowWidth / 2 - cardWidth / 2;
-                        const translateX = Math.sin((angle * Math.PI) / 120) * radius;
-                        const translateY = Math.cos((angle * Math.PI) / -100) * 30;
-                        const rotateY = -angle;
-                        const zIndex = Math.abs(displayDistance);
+            // Smooth interpolation for all properties
+            const clampedDistance = Math.min(absolutePosition, 3);
+            
+            // Interpolate width smoothly
+            const baseWidth = 180;
+            const width = baseWidth + clampedDistance * 10;
+            
+            // Interpolate height smoothly
+            const getHeightForDistance = (dist: number) => {
+              if (dist <= 0) return centerHeight;
+              if (dist >= 3) return outerHeights[3];
+              
+              const lowerIndex = Math.floor(dist);
+              const upperIndex = Math.ceil(dist);
+              const fraction = dist - lowerIndex;
+              
+              const lowerHeight = lowerIndex === 0 ? centerHeight : outerHeights[lowerIndex];
+              const upperHeight = outerHeights[upperIndex];
+              
+              return lowerHeight + (upperHeight - lowerHeight) * fraction;
+            };
+            
+            const height = getHeightForDistance(clampedDistance);
+            
+            // Interpolate rotation smoothly
+            const rotate = isLeft ? clampedDistance * 2 : -clampedDistance * 2;
+            
+            // Determine clip path based on rounded distance for stability
+            const roundedDistance = Math.round(absolutePosition);
+            const clipPathId = roundedDistance === 0 
+              ? "clip-center"
+              : isLeft
+                ? `clip-left-${Math.min(roundedDistance, 3)}`
+                : `clip-right-${Math.min(roundedDistance, 3)}`;
 
-                        return (
-                            <div
-                                key={index}
-                                className="absolute transition-all duration-700 ease-out"
-                                style={{
-                                    transform: `translateX(${translateX}px) translateY(${translateY}px) rotateY(${rotateY}deg)`,
-                                    zIndex: zIndex,
-                                    width: `${cardWidth}px`,
-                                    height: `${cardHeight}px`,
-                                }}
-                            >
-                                <div className="overflow-hidden rounded-2xl shadow-2xl w-full h-full">
-                                    <Image
-                                        src={src}
-                                        alt={`iCog team ${index}`}
-                                        width={cardWidth}
-                                        height={cardHeight}
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </div>
-    );
+            // Calculate smooth horizontal translation
+            const gapSize = typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 7;
+            const translateX = -fractionalOffset * (baseWidth + gapSize + 10);
+
+            return (
+              <div
+                key={`${effectiveIndex}-${visibleIndex}`}
+                className="relative flex-shrink-0"
+                style={{
+                  width: `${width}px`,
+                  height: `${height}px`,
+                  clipPath: `url(#${clipPathId})`,
+                  zIndex: Math.round(20 - absolutePosition),
+                  transform: `translateX(${translateX}px) rotateY(${rotate}deg)`,
+                  backfaceVisibility: "hidden",
+                }}
+              >
+                <Image
+                  src={image}
+                  alt={`iCog team culture ${visibleIndex + 1}`}
+                  fill
+                  className="object-cover pointer-events-none select-none"
+                  sizes="(max-width: 768px) 150px, 220px"
+                  draggable={false}
+                />
+              </div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </div>
+  );
 }
