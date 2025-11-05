@@ -12,6 +12,7 @@ interface CardImagesWithTextProps {
     title?: string;
     children?: ReactNode;
     imageSrc?: string;
+    link?: string;
 }
 
 export default function CardImagesWithText({
@@ -19,6 +20,7 @@ export default function CardImagesWithText({
     readTime = "",
     title = "",
     imageSrc = "",
+    link = "#",
 }: CardImagesWithTextProps) {
     return (
         <motion.div
@@ -52,7 +54,7 @@ export default function CardImagesWithText({
                         </h3>
 
                         <a
-                            href="#"
+                            href={link}
                             className="flex items-center gap-1 text-[#81B041] font-medium text-sm transition-colors duration-200"
                         >
                             View Blog

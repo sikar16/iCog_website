@@ -23,22 +23,26 @@ export default function Page() {
         <div>
             <div ref={containerRef} className="relative w-full h-[200vh]">
                 <motion.div
-                    className="sticky top-0 h-screen"
+                    className="sticky top-0 h-screen z-10"
                     style={{ scale: heroScale, opacity: heroOpacity }}
                 >
                     <Hero />
                 </motion.div>
                 <motion.div
-                    className="sticky top-0 h-screen"
+                    className="sticky top-0 h-screen z-10"
                     style={{ scale: cultureScale, opacity: cultureOpacity, y: cultureY }}
                 >
                     <CultureSection />
                 </motion.div>
 
             </div>
-            <JoinOurTeam />
+            <div className="relative z-20">
+                <JoinOurTeam />
+            </div>
             <ScrollVideoSection />
-            <TalentRosterForm />
+            <div className="relative z-20">
+                <TalentRosterForm />
+            </div>
         </div>
 
     );

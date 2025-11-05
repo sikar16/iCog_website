@@ -63,7 +63,7 @@ export default function CultureSection() {
                         className="flex flex-1 flex-col justify-center items-center gap-6 relative"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                     >
                         <motion.div
                             className="rounded-2xl overflow-hidden shadow-md z-30"

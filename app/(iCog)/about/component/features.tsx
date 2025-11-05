@@ -32,7 +32,7 @@ export default function Features() {
     ];
 
     return (
-        <div ref={containerRef} className="bg-white relative">
+        <div ref={containerRef} className="bg-white relative px-10">
             {sections.map((s, i) => (
                 <SolutionSection
                     key={i}
@@ -88,12 +88,13 @@ function SolutionSection({
     const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
     const isOdd = index % 2 !== 0;
 
-    const videos = [
-        "/assets/About Page/training.mp4",
-        "/assets/About Page/product.mp4",
-        "/assets/About Page/consultancy.mp4",
-    ];
-    const video = videos[index];
+    // Videos commented out - no longer used
+    // const videos = [
+    //     "/assets/About Page/training.mp4",
+    //     "/assets/About Page/product.mp4",
+    //     "/assets/About Page/consultancy.mp4",
+    // ];
+    // const video = videos[index];
 
     return (
         <motion.div
@@ -103,10 +104,15 @@ function SolutionSection({
             className="sticky top-0 flex items-center justify-center min-h-[60vh]"
         >
             <motion.div
-                style={{ scale, y }}
+                style={{ 
+                    scale, 
+                    y, 
+                    backgroundColor: '#FBFBFB', 
+                    boxShadow: '4px 4px 32px 0px rgba(0, 0, 0, 0.05)' 
+                }}
                 className={`flex flex-col gap-11 ${isOdd ? "md:flex-row-reverse" : "md:flex-row"
                     } items-center justify-between w-full max-w-7xl p-10 
-        bg-white rounded-3xl shadow-md relative overflow-hidden border border-gray-100`}
+        rounded-3xl relative overflow-hidden border border-gray-100`}
             >
 
                 {/* TEXT SECTION */}
@@ -140,13 +146,21 @@ function SolutionSection({
                     </motion.div>
                 </div>
 
-                {/* IMAGE / VIDEO SECTION */}
+                {/* IMAGE SECTION */}
                 <motion.div
                     className="relative block md:flex-1 w-full rounded-2xl overflow-hidden mb-6 sm:mb-0 h-[250px] sm:h-[350px] md:h-[450px] flex-shrink-0 bg-gray-100"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    {isHovered ? (
+                    <Image
+                        src={image}
+                        alt={imageAlt}
+                        fill
+                        className={`object-cover rounded-2xl transition-all duration-300 ${isHovered ? '' : 'grayscale'}`}
+                        priority={index === 0}
+                    />
+                    {/* Video hover functionality commented out */}
+                    {/* {isHovered ? (
                         <video
                             src={video}
                             autoPlay
@@ -163,7 +177,7 @@ function SolutionSection({
                             className="object-cover rounded-2xl transition-all duration-300"
                             priority={index === 0}
                         />
-                    )}
+                    )} */}
                 </motion.div>
             </motion.div>
         </motion.div>

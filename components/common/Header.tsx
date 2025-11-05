@@ -21,17 +21,15 @@ export default function Header() {
 
     ]
     return (
-        <div className="fixed top-0 left-0 z-50 w-full border-b border-white bg-white/40 backdrop-blur-lg px-10 sm:px-10 py-[14px] ">
+        <div className="fixed top-0 left-0 z-50 w-full border-b border-transparent bg-white/40 backdrop-blur-lg px-10 sm:px-10 py-[14px] ">
             <div className='  flex justify-between items-center'>
-                <Link href="/home">
-                    <div>
-                        <Image
-                            src="/assets/logo.svg"
-                            alt='iCog logo'
-                            width={126}
-                            height={52}
-                        />
-                    </div>
+                <Link href="/home" className="cursor-pointer hover:opacity-80 transition-opacity">
+                    <Image
+                        src="/assets/logo.svg"
+                        alt='iCog logo'
+                        width={126}
+                        height={52}
+                    />
                 </Link>
                 <div className='hidden md:flex gap-7'>
                     <Menubar className='border-0 shadow-none gap-7 bg-transparent'>

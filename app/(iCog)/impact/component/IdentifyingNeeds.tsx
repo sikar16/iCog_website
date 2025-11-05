@@ -26,7 +26,7 @@ interface IdentifyingNeedsProps {
 export default function IdentifyingNeeds({ shouldAnimate }: IdentifyingNeedsProps) {
 
     const { ref, inView } = useInView({
-        triggerOnce: false,
+        triggerOnce: true,
         threshold: 0.6,
     });
 
@@ -80,7 +80,9 @@ export default function IdentifyingNeeds({ shouldAnimate }: IdentifyingNeedsProp
                                     </motion.div> */}
 
                                     <motion.div
-                                        className="flex-shrink-0 rounded-xl overflow-hidden w-[168px] h-[147px] shadow-sm flex items-center justify-center"
+                                        className={`flex-shrink-0 rounded-xl overflow-hidden w-[168px] shadow-sm relative ${
+                                            index === 1 ? "h-[147px]" : "h-[147px] flex items-center justify-center"
+                                        }`}
                                         initial={{ opacity: 0, y: 100 }}
                                         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                                         transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
@@ -88,9 +90,10 @@ export default function IdentifyingNeeds({ shouldAnimate }: IdentifyingNeedsProp
                                         <Image
                                             src={need.image}
                                             alt={need.title}
-                                            width={168}
-                                            height={147}
-                                            className="w-full h-full object-cover rounded-xl"
+                                            fill
+                                            className={`object-cover rounded-xl ${
+                                                index === 1 ? "object-top" : "object-center"
+                                            }`}
                                         />
                                     </motion.div>
 

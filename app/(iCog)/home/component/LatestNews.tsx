@@ -8,20 +8,23 @@ export default function LatestNews() {
         {
             date: "October 31, 2024",
             imageSrc: "/assets/Home Page/9b17baa91ae89e73e063437e545b6b28cdbc927a.png",
-            readTime: "4 minutes read",
-            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
+            readTime: "6 minutes read",
+            title: "Curious Reader: Using Digital Tools to Support Early Education in Ethiopia",
+            link: "https://icog.ghost.io/curious-reader-using-digital-tools-to-support-early-education-in-ethiopia/",
         },
         {
             date: "October 31, 2024",
             imageSrc: "/assets/Home Page/4a7d40b9d3401801254077bdb3e678c98f391834.jpg ",
             readTime: "4 minutes read",
-            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
+            title: "The SolveIT 2023 Bootcamp Experience",
+            link: "https://icog.ghost.io/the-solveit-2023-bootcamp-experience/",
         },
         {
             date: "October 31, 2024",
             imageSrc: "/assets/Home Page/23270ff8a27dab1aafa56385255ff71da8b6adc7.jpg",
-            readTime: "4 minutes read",
-            title: "Lorem Ipsum Dolor Sit Amet, Amet Consectetur Adipiscing",
+            readTime: "7 minutes read",
+            title: "Desta's Visit to iCog Labs",
+            link: "https://icog.ghost.io/destas-visit-to-icog-labs-a-landmark-for-ethiopian-ai-and-tech/",
         },
     ];
 
@@ -111,6 +114,7 @@ export default function LatestNews() {
                             date={post.date}
                             readTime={post.readTime}
                             title={post.title}
+                            link={post.link}
                         />
                     </motion.div>
                 ))}
