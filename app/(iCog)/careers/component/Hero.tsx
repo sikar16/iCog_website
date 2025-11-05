@@ -119,7 +119,7 @@ export default function Hero() {
       </svg>
 
       {/* Header */}
-      <div className="w-full mt-36 text-center my-16 md:mb-6 px-4 z-10">
+      <div className="w-full mt-[120px] text-center my-16 md:mb-6 px-4 z-10">
         <h1 className="text-[40px] md:text-[53px] font-bold mb-4 text-foreground">
           What It Means to Work at iCog
         </h1>

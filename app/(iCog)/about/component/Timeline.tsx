@@ -189,19 +189,18 @@ const timelineEvents: TimelineEvent[] = [
 
 const WhatWeDo = () => {
     return (
-        <section className="min-h-screen bg-background py-24 px-6 md:px-12">
+        <section className="min-h-screen bg-background py-[120px] px-10">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-20">
-                    <div className="mb-8 relative w-full flex justify-center">
-                        <h2 className="text-center font-bold tracking-tight text-black text-[40px] md:text-[53px] relative z-10">
-                            What We Do
+                    <div className="mb-8 w-full flex justify-center">
+                        <h2 className="text-center font-bold tracking-tight text-black text-[40px] md:text-[53px]">
+                            What <span className="relative inline-block">
+                                We Do
+                                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gray-200 overflow-hidden block">
+                                    <span className="h-1 animate-snakeSmooth absolute left-1/2 -translate-x-1/2 block"></span>
+                                </span>
+                            </span>
                         </h2>
-
-                        <div className="absolute bottom-0 flex justify-center w-full left-[4%]">
-                            <div className="h-1 bg-gray-200 w-[150px] relative overflow-hidden">
-                                <div className="h-1  animate-snakeSmooth absolute left-1/2 -translate-x-1/2"></div>
-                            </div>
-                        </div>
                     </div>
 
                     <style jsx>{`

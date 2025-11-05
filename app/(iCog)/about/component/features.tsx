@@ -32,7 +32,7 @@ export default function Features() {
     ];
 
     return (
-        <div ref={containerRef} className="bg-white relative">
+        <div ref={containerRef} className="bg-white relative px-10">
             {sections.map((s, i) => (
                 <SolutionSection
                     key={i}
