@@ -222,13 +222,11 @@ export default function Hero() {
                   backfaceVisibility: "hidden",
                 }}
                 initial={{
-                  scale: 1.8,
-                  x: isLeft ? -300 : 300,
+                  scale: 2.2,
                   opacity: 0,
                 }}
                 animate={hasAnimated ? {
-                  scale: [1.8, 0.92, 1],
-                  x: 0,
+                  scale: [2.2, 0.92, 1],
                   opacity: 1,
                 } : {}}
                 transition={{
