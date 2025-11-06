@@ -26,10 +26,17 @@ export default function Hero() {
   const x = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   // Trigger mount animation
   useEffect(() => {
     setHasAnimated(true);
+    // Disable animation after it completes
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, 2000); // Duration + max delay (1.4s + 0.36s for furthest image + buffer)
+    
+    return () => clearTimeout(timer);
   }, []);
 
   // Update offset continuously while dragging
@@ -221,20 +228,22 @@ export default function Hero() {
                   transform: `translateX(${translateX}px) rotateY(${rotate}deg)`,
                   backfaceVisibility: "hidden",
                 }}
-                initial={{
-                  scale: 2.2,
-                  opacity: 0,
-                }}
-                animate={hasAnimated ? {
-                  scale: [2.2, 0.92, 1],
-                  opacity: 1,
-                } : {}}
-                transition={{
-                  duration: 1.4,
-                  delay: absolutePosition * 0.12,
-                  ease: [0.34, 1.56, 0.64, 1], // Custom cubic-bezier for bounce effect
-                  opacity: { duration: 0.6 }
-                }}
+                {...(!animationComplete && {
+                  initial: {
+                    scale: 2.5,
+                    opacity: 0,
+                  },
+                  animate: hasAnimated ? {
+                    scale: [2.5, 0.92, 1],
+                    opacity: 1,
+                  } : {},
+                  transition: {
+                    duration: 1.4,
+                    delay: absolutePosition * 0.12,
+                    ease: [0.34, 1.56, 0.64, 1], // Custom cubic-bezier for bounce effect
+                    opacity: { duration: 0.6 }
+                  }
+                })}
               >
                 <Image
                   src={image}
