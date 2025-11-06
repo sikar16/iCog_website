@@ -2,7 +2,7 @@
 "use client";
 import Image from "next/image";
 import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function Hero() {
   const images = [
@@ -25,6 +25,12 @@ export default function Hero() {
   const [offset, setOffset] = useState(0);
   const x = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  // Trigger mount animation
+  useEffect(() => {
+    setHasAnimated(true);
+  }, []);
 
   // Update offset continuously while dragging
   useAnimationFrame(() => {
@@ -204,7 +210,7 @@ export default function Hero() {
             const translateX = -fractionalOffset * (baseWidth + gapSize + 10);
 
             return (
-              <div
+              <motion.div
                 key={`${effectiveIndex}-${visibleIndex}`}
                 className="relative flex-shrink-0"
                 style={{
@@ -215,6 +221,22 @@ export default function Hero() {
                   transform: `translateX(${translateX}px) rotateY(${rotate}deg)`,
                   backfaceVisibility: "hidden",
                 }}
+                initial={{
+                  scale: 1.8,
+                  x: isLeft ? -300 : 300,
+                  opacity: 0,
+                }}
+                animate={hasAnimated ? {
+                  scale: [1.8, 0.92, 1],
+                  x: 0,
+                  opacity: 1,
+                } : {}}
+                transition={{
+                  duration: 1.4,
+                  delay: absolutePosition * 0.12,
+                  ease: [0.34, 1.56, 0.64, 1], // Custom cubic-bezier for bounce effect
+                  opacity: { duration: 0.6 }
+                }}
               >
                 <Image
                   src={image}
@@ -224,7 +246,7 @@ export default function Hero() {
                   sizes="(max-width: 768px) 150px, 220px"
                   draggable={false}
                 />
-              </div>
+              </motion.div>
             );
           })}
         </motion.div>
