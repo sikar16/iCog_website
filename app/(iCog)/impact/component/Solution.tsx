@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
@@ -38,11 +37,11 @@ export default function Solutions() {
 
             <SolutionSection
                 index={2}
-                title="TFP"
+                title="Training Solutions"
                 description="It is a training facilitation platform that helps organizations design, manage, and measure training more efficiently. 
                 From structuring content to coordinating sessions and tracking outcomes, 
                 TFP streamlines the entire training process in one integrated tool"
-                image="/assets/01e735ca96095772ae560ee58de1de11321a4b89-removebg-preview.png"
+                image="/"
                 imageAlt="Training Solution"
             />
 
@@ -106,12 +105,10 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                             viewport={{ once: true }}
                             className="inline-block mb-4 sm:mb-6"
                         >
-                            <Image
+                            <img
                                 src={logo}
                                 alt={logoAlt || "Logo"}
-                                height={100}
-                                width={200}
-                                className="rounded-xl shadow-lg mx-auto md:mx-0"
+                                className="h-[80px] sm:h-[100px] w-auto object-contain rounded-xl shadow-lg mx-auto md:mx-0"
                             />
                         </motion.div>
                     ) : (
@@ -143,13 +140,12 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                         viewport={{ once: true }}
-                        className="relative w-full md:hidden h-[300px] sm:h-[380px] rounded-xl overflow-hidden mt-4"
+                        className="w-full md:hidden mt-4"
                     >
-                        <Image
+                        <img
                             src={image}
                             alt={imageAlt}
-                            fill
-                            className="object-cover rounded-xl"
+                            className="w-full h-auto max-h-[500px] object-contain rounded-xl"
                         />
                     </motion.div>
                 </div>
@@ -160,15 +156,13 @@ function SolutionSection({ logo, logoAlt, title, description, image, imageAlt }:
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="hidden md:block relative w-full md:w-[460px] lg:w-[520px] h-[420px] lg:h-[520px] rounded-xl overflow-hidden shadow-lg"
+                    className="hidden md:flex items-center justify-center w-full md:w-[560px] lg:w-[640px] h-[480px] lg:h-[600px] rounded-xl overflow-hidden shadow-lg bg-black/5"
                 >
-                    <Image
+                    <img
                         src={image}
                         alt={imageAlt}
-                        fill
-                        className="object-cover w-full h-full rounded-xl"
+                        className="w-full h-full object-contain rounded-xl"
                     />
-                    <div className="absolute inset-0 bg-black/10"></div>
                 </motion.div>
             </div>
         </motion.div>

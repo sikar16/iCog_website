@@ -32,11 +32,12 @@ export default function Features() {
     ];
 
     return (
-        <div ref={containerRef} className="bg-white relative px-10">
+        <div ref={containerRef} className="bg-white relative px-10 pb-32">
             {sections.map((s, i) => (
                 <SolutionSection
                     key={i}
                     index={i}
+                    isLast={i === sections.length - 1}
                     title={s.title}
                     description={s.description}
                     image={s.image}
@@ -49,6 +50,7 @@ export default function Features() {
 
 interface SolutionSectionProps {
     index: number;
+    isLast: boolean;
     title: string;
     description: string;
     image: string;
@@ -57,6 +59,7 @@ interface SolutionSectionProps {
 
 function SolutionSection({
     index,
+    isLast,
     title,
     description,
     image,
@@ -101,7 +104,7 @@ function SolutionSection({
             ref={sectionRef}
             id={title.toLowerCase()}
             style={{ opacity, filter: grayscale }}
-            className="sticky top-0 flex items-center justify-center min-h-[60vh]"
+            className={`${isLast ? 'relative' : 'sticky top-0'} flex items-center justify-center min-h-[60vh]`}
         >
             <motion.div
                 style={{ 
@@ -156,7 +159,7 @@ function SolutionSection({
                         src={image}
                         alt={imageAlt}
                         fill
-                        className={`object-cover rounded-2xl transition-all duration-300 ${isHovered ? '' : 'grayscale'}`}
+                        className={`object-cover object-top rounded-2xl transition-all duration-300 ${isHovered ? '' : 'grayscale'}`}
                         priority={index === 0}
                     />
                     {/* Video hover functionality commented out */}

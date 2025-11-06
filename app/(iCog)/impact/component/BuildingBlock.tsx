@@ -1,5 +1,4 @@
 "use client"
-import Image from 'next/image'
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
@@ -87,12 +86,11 @@ function Section({ image, logo, title, description }: SectionProps) {
                             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                             className='inline-block mb-6 sm:mb-8'
                         >
-                            <Image
+                            <img
                                 src={logo}
                                 alt='Logo'
-                                height={200}
-                                width={140}
-                                className='rounded-xl shadow-lg mx-auto md:mx-0'
+                                className='h-[120px] sm:h-[150px] w-auto object-contain shadow-lg mx-auto md:mx-0'
+                                style={{ borderRadius: '22px' }}
                             />
                         </motion.div>
                     )}
@@ -124,15 +122,14 @@ function Section({ image, logo, title, description }: SectionProps) {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                        className="relative w-full md:hidden my-6 sm:mb-8 h-[420px] rounded-xl overflow-hidden "
+                        className="w-full md:hidden my-6 sm:mb-8 flex justify-center"
                     >
-                        <Image
+                        <img
                             src={image}
                             alt={title || "Image"}
-                            fill
-                            className="object-contain w-full h-full rounded-xl"
+                            className="w-auto h-auto max-w-full max-h-[300px] object-contain"
+                            style={{ borderRadius: '22px' }}
                         />
-                        <div className="absolute inset-0 bg-black/10"></div>
                     </motion.div>
 
 
@@ -144,15 +141,14 @@ function Section({ image, logo, title, description }: SectionProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="hidden md:block relative w-full md:w-[460px] lg:w-[520px] h-[420px] lg:h-[520px] rounded-xl overflow-hidden shadow-lg"
+                    className="hidden md:flex items-center justify-center shadow-lg"
                 >
-                    <Image
+                    <img
                         src={image}
                         alt={title || 'Image'}
-                        fill
-                        className='object-fill w-full h-full rounded-xl'
+                        className='w-[280px] h-[250px] md:w-[300px] md:h-[280px] lg:w-[380px] lg:h-[360px] object-cover'
+                        style={{ borderRadius: '22px' }}
                     />
-                    <div className='absolute inset-0 bg-black/10'></div>
                 </motion.div>
             </div>
         </motion.div>
